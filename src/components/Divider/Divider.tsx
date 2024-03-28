@@ -4,17 +4,16 @@ import { cn } from "../../utils";
 
 /////////// Divider Component ///////////
 
-const dividerVariants = cva("text-xl", {
+const dividerVariants = cva("br-divider", {
   variants: {
     orientation: {
-      horizontal: "br-divider w-full",
-      vertical: "br-divider vertical",
+      horizontal: "w-full",
+      vertical: "vertical",
     },
     dashed: {
-      true: " dashed",
+      true: "dashed",
       false: "",
     },
-
     size: {
       sm: "sm",
       md: "md",
@@ -42,7 +41,7 @@ export const Divider = React.forwardRef<HTMLSpanElement, DividerProps>(
       dashed = false,
       className,
       ...props
-    },
+    }: DividerProps,
     ref
   ) => {
     return (
