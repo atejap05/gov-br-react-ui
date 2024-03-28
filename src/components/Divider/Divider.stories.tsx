@@ -17,14 +17,15 @@ const meta: Meta<typeof Divider> = {
       <div
         style={{
           display: "flex",
-
+          border: "2px solid #f0f0f0",
           justifyContent: "center",
           alignItems: "center",
           gap: "1rem",
           padding: "1rem",
           width: "50rem",
           height: "8rem",
-          backgroundColor: "#f0f0f0",
+          borderRadius: "0.3rem",
+          boxShadow: "0 0 1rem rgba(0, 0, 0, 0.1)",
         }}
       >
         {Story()}
