@@ -1,0 +1,6 @@
+@import url("./base.style.css");
+@import url("./divider.style.css");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
