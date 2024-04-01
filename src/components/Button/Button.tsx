@@ -27,7 +27,7 @@ const buttonVariants = cva("br-button", {
       false: "",
     },
     disabled: {
-      true: "disabled",
+      true: "disabled cursor-not-allowed",
       false: "",
     },
     active: {
