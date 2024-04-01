@@ -29,16 +29,16 @@ export const Template: Story = {
   render: args => (
     <Card {...args}>
       <CardHeader>
-        <p className="text-xl">Card Header</p>
+        <p className="text-xl font-semibold">Card Header</p>
       </CardHeader>
 
       <CardContent>
-        <p className="text-lg font-bold">Hello World</p>
+        <p className="text-lg">Card Content</p>
         <p className="text-gray-600">This is a test</p>
       </CardContent>
 
       <CardFooter>
-        <p className="text-sm font-bold">Card Footer</p>
+        <p className="text-sm font-semibold">Card Footer</p>
       </CardFooter>
     </Card>
   ),
