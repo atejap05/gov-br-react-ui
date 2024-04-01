@@ -29,8 +29,6 @@ export type CardProps = React.HtmlHTMLAttributes<HTMLDivElement> & {
   children: React.ReactNode;
 };
 
-//TODO: Como fazer para que o CardHeader, CardContent e CardFooter sejam filhos do Card?
-
 export const Card = React.forwardRef<HTMLDivElement, CardProps>(
   (
     {

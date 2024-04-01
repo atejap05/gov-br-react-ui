@@ -13,8 +13,6 @@ export type CardHeaderProps = React.HtmlHTMLAttributes<HTMLDivElement> & {
   children: React.ReactNode;
 };
 
-// TODO: CardHeader so pode ser filho de Card
-
 export const CardHeader = React.forwardRef<HTMLDivElement, CardHeaderProps>(
   ({ className, ...props }: CardHeaderProps, ref) => {
     const isCard = useCardContext();

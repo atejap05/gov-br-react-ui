@@ -13,8 +13,6 @@ export type CardFooterProps = React.HtmlHTMLAttributes<HTMLDivElement> & {
   children: React.ReactNode;
 };
 
-// TODO: CardFooter so pode ser filho de Card
-
 export const CardFooter = React.forwardRef<HTMLDivElement, CardFooterProps>(
   ({ className, ...props }: CardFooterProps, ref) => {
     const isCard = useCardContext();
