@@ -25,17 +25,14 @@ const meta: Meta = {
   // decorators: [
   //   Story => (
   //     <>
-  //       <div>
-  //         <div
-  //           style={{ display: "flex", flexDirection: "column", gap: "1rem" }}
-  //         >
-  //           <h2>Exemplo de uso do Divider</h2>
-  //           {Story()}
-  //           <p>
-  //             O componente Divider é utilizado para separar conteúdos de uma
-  //             forma visualmente agradável.
-  //           </p>
-  //         </div>
+  //       <div
+  //         style={{
+  //           display: "grid",
+  //           gridTemplateColumns: "1fr 1fr 1fr",
+  //           placeItems: "center",
+  //         }}
+  //       >
+  //         {Story()}
   //       </div>
   //     </>
   //   ),
@@ -47,48 +44,59 @@ export default meta;
 type Template = StoryObj<typeof meta>;
 
 export const Horizontal: Template = {
-  args: {
-    orientation: "horizontal",
-  },
-  render: ({ args }) => (
-    <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-      <div>
-        <h1>Conteúdo 1</h1>
-      </div>
-      <Divider {...args} />
-      <div>
-        <h1>Conteúdo 2</h1>
-      </div>
+  render: () => (
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-between",
+        alignItems: "center",
+        gap: "1rem",
+      }}
+    >
+      <h1>Conteúdo 1</h1>
+
+      <Divider />
+
+      <h3>Conteúdo 2</h3>
     </div>
   ),
 };
 
 export const Vertical: Template = {
   render: () => (
-    <div style={{ display: "flex", gap: "1rem" }}>
-      <div>
-        <h1>Conteúdo 1</h1>
-      </div>
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "space-between",
+        alignItems: "center",
+        gap: "1.6rem",
+      }}
+    >
+      <h3>Conteúdo 1</h3>
       <Divider orientation="vertical" />
-      <div>
-        <h1>Conteúdo 2</h1>
-      </div>
+      <h3>Conteúdo 2</h3>
     </div>
   ),
 };
 
 export const Compounded: Template = {
   render: () => (
-    <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-      <div>
-        <h1>Conteúdo 1</h1>
+    <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          gap: "1rem",
+        }}
+      >
+        <p style={{ marginTop: "1rem" }}>Conteúdo 1</p>
+        <Divider orientation="vertical" />
+        <p style={{ marginTop: "1rem" }}>Conteúdo 2</p>
       </div>
-      <Divider />
-      <div>
-        <h1>Conteúdo 2</h1>
-      </div>
-      <Divider />
-      <div>
+      <Divider size="lg" dashed />
+      <div style={{ textAlign: "center" }}>
         <h1>Conteúdo 3</h1>
       </div>
     </div>
