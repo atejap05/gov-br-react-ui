@@ -11,6 +11,7 @@ const buttonVariants = cva("br-button", {
     variant: {
       primary: "primary",
       secondary: "secondary",
+      tertiary: "",
       danger: "danger",
       success: "success",
       warning: "warning",
@@ -50,7 +51,14 @@ const buttonVariants = cva("br-button", {
 });
 
 export type ButtonProps = React.HtmlHTMLAttributes<HTMLButtonElement> & {
-  variant?: "primary" | "secondary" | "danger" | "success" | "warning" | "info";
+  variant?:
+    | "primary"
+    | "secondary"
+    | "tertiary"
+    | "danger"
+    | "success"
+    | "warning"
+    | "info";
   size?: "xs" | "sm" | "md" | "lg";
   circle?: boolean;
   disabled?: boolean;
@@ -67,7 +75,6 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       disabled,
       active,
       loading,
-
       className,
       ...props
     }: ButtonProps,
