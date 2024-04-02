@@ -24,3 +24,7 @@ dist-ssr
 *.sw?
 
 *storybook.log
+
+
+# Arquivo de teste
+/src/AppTest.tsx
