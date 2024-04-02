@@ -39,6 +39,14 @@ const buttonVariants = cva("br-button", {
       true: "loading",
       false: "",
     },
+    darkMode: {
+      true: "dark-mode",
+      false: "",
+    },
+    block: {
+      true: "block",
+      false: "",
+    },
   },
   defaultVariants: {
     variant: "primary",
@@ -47,6 +55,8 @@ const buttonVariants = cva("br-button", {
     disabled: false,
     active: false,
     loading: false,
+    darkMode: false,
+    block: false,
   },
 });
 
@@ -64,6 +74,9 @@ export type ButtonProps = React.HtmlHTMLAttributes<HTMLButtonElement> & {
   disabled?: boolean;
   active?: boolean;
   loading?: boolean;
+  className?: string;
+  darkMode?: boolean;
+  block?: boolean;
 };
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
@@ -75,6 +88,8 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       disabled,
       active,
       loading,
+      darkMode,
+      block,
       className,
       ...props
     }: ButtonProps,
@@ -91,6 +106,8 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             disabled,
             active,
             loading,
+            darkMode,
+            block,
           }),
           className
         )}

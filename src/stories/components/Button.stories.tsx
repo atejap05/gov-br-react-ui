@@ -136,7 +136,7 @@ export const Large: Story = {
 export const Circle: Story = {
   args: {
     circle: true,
-    children: "+",
+    children: "🔍",
   },
 };
 
@@ -158,5 +158,19 @@ export const Loading: Story = {
   args: {
     loading: true,
     children: "Loading Button",
+  },
+};
+
+export const DarkMode: Story = {
+  args: {
+    darkMode: true,
+    children: "Dark Mode Button",
+  },
+};
+
+export const Block: Story = {
+  args: {
+    block: true,
+    children: "Block Button",
   },
 };
