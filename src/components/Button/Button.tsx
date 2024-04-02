@@ -27,10 +27,10 @@ const buttonVariants = cva("br-button", {
       info: "info",
     },
     size: {
-      xs: "xsmall",
-      sm: "small",
-      md: "medium",
-      lg: "large",
+      xs: "xsmall text-xs",
+      sm: "small text-sm",
+      md: "medium text-base",
+      lg: "large text-lg",
     },
     circle: {
       true: "circle",
@@ -48,7 +48,7 @@ const buttonVariants = cva("br-button", {
       true: "loading",
       false: "",
     },
-    darkMode: {
+    dark: {
       true: "dark-mode",
       false: "",
     },
@@ -64,7 +64,7 @@ const buttonVariants = cva("br-button", {
     disabled: false,
     active: false,
     loading: false,
-    darkMode: false,
+    dark: false,
     block: false,
   },
 });
@@ -83,7 +83,7 @@ export type ButtonProps = React.HtmlHTMLAttributes<HTMLButtonElement> & {
   disabled?: boolean;
   active?: boolean;
   loading?: boolean;
-  darkMode?: boolean;
+  dark?: boolean;
   block?: boolean;
 };
 
@@ -96,7 +96,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       disabled,
       active,
       loading,
-      darkMode,
+      dark,
       block,
       children,
       className,
@@ -115,7 +115,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             disabled,
             active,
             loading,
-            darkMode,
+            dark,
             block,
           }),
           className
