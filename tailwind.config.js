@@ -2,6 +2,7 @@
 
 export default {
   content: ["./src/**/*.{html,js,jsx,ts,tsx,mdx}"],
+  important: true, // Add !important to all utilities (optional)
   theme: {
     extend: {
       colors: {

@@ -2,6 +2,15 @@ import React from "react";
 import { cva } from "class-variance-authority";
 import { cn } from "../../utils";
 
+// TODO: Loading component should be moved to a separate file
+// TODO: Provavelmente o Loading css vem do design system, verificar se é necessário manter o css
+
+const Loading = () => (
+  <div className={`min-w-16 flex place-content-center`}>
+    <div className="w-4 h-4 rounded-full border-2 border-b-transparent animate-spin border-[inherit]" />
+  </div>
+);
+
 /////////// Button Component ///////////
 
 // TODO: Verificar necessidade de implementacao da class .inverted and .dark-mode
@@ -74,7 +83,6 @@ export type ButtonProps = React.HtmlHTMLAttributes<HTMLButtonElement> & {
   disabled?: boolean;
   active?: boolean;
   loading?: boolean;
-  className?: string;
   darkMode?: boolean;
   block?: boolean;
 };
@@ -112,7 +120,9 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           className
         )}
         {...props}
-      />
+      >
+        {loading ? <Loading /> : props.children}
+      </button>
     );
   }
 );

@@ -66,70 +66,70 @@ export const Default: Story = {
 export const Primary: Story = {
   args: {
     variant: "primary",
-    children: "Primary Button",
+    children: "Primary",
   },
 };
 
 export const Secondary: Story = {
   args: {
     variant: "secondary",
-    children: "Secondary Button",
+    children: "Secondary",
   },
 };
 
 export const Tertiary: Story = {
   args: {
     variant: "tertiary",
-    children: "Terciary Button",
+    children: "Terciary",
   },
 };
 
 export const Danger: Story = {
   args: {
     variant: "danger",
-    children: "Danger Button",
+    children: "Danger",
   },
 };
 
 export const Success: Story = {
   args: {
     variant: "success",
-    children: "Success Button",
+    children: "Success",
   },
 };
 
 export const Warning: Story = {
   args: {
     variant: "warning",
-    children: "Warning Button",
+    children: "Warning",
   },
 };
 
 export const Info: Story = {
   args: {
     variant: "info",
-    children: "Info Button",
+    children: "Info",
   },
 };
 
 export const ExtraSmall: Story = {
   args: {
     size: "xs",
-    children: "Extra Small Button",
+    children: "Extra Small",
   },
 };
 
 export const Small: Story = {
   args: {
     size: "sm",
-    children: "Small Button",
+    children: "Small",
   },
 };
 
 export const Large: Story = {
   args: {
     size: "lg",
-    children: "Large Button",
+    children: "Large",
   },
 };
 
@@ -143,34 +143,34 @@ export const Circle: Story = {
 export const Disabled: Story = {
   args: {
     disabled: true,
-    children: "Disabled Button",
+    children: "Disabled",
   },
 };
 
 export const Active: Story = {
   args: {
     active: true,
-    children: "Active Button",
+    children: "Active",
   },
 };
 
 export const Loading: Story = {
   args: {
     loading: true,
-    children: "Loading Button",
+    children: "Loading",
   },
 };
 
 export const DarkMode: Story = {
   args: {
     darkMode: true,
-    children: "Dark Mode Button",
+    children: "Dark Mode",
   },
 };
 
 export const Block: Story = {
   args: {
     block: true,
-    children: "Block Button",
+    children: "Block",
   },
 };
