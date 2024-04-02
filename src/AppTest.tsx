@@ -1,22 +1,25 @@
-import { Card, CardContent, CardHeader, CardFooter } from "./components/Card";
+import { Button } from "./components/Button";
 
 function AppTest() {
   return (
     <div className="flex place-items-center place-content-center h-screen w-full">
-      <Card>
-        <CardHeader>
-          <p className="text-xl">Card Header</p>
-        </CardHeader>
+      <Button>Primary</Button>
 
-        <CardContent>
-          <p className="text-lg font-bold">Hello World</p>
-          <p className="text-gray-600">This is a test</p>
-        </CardContent>
+      <Button variant="secondary">Secondary</Button>
 
-        <CardFooter>
-          <p className="text-sm font-bold">Card Footer</p>
-        </CardFooter>
-      </Card>
+      <Button variant="danger">Danger</Button>
+      <Button variant="success">Success</Button>
+      <Button variant="warning">Warning</Button>
+      <Button variant="info">Info</Button>
+      <Button size="xs">Extra Small</Button>
+      <Button size="sm">Small</Button>
+      <Button size="md">Medium</Button>
+      <Button size="lg">Large</Button>
+
+      <Button circle>Circle</Button>
+      <Button disabled>Disabled</Button>
+      <Button active>Active</Button>
+      <Button loading>Loading</Button>
     </div>
   );
 }
