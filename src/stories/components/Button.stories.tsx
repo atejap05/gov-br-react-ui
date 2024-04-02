@@ -50,6 +50,16 @@ const meta: Meta<typeof Button> = {
         type: "boolean",
       },
     },
+    dark: {
+      control: {
+        type: "boolean",
+      },
+    },
+    block: {
+      control: {
+        type: "boolean",
+      },
+    },
   },
 };
 
@@ -163,7 +173,7 @@ export const Loading: Story = {
 
 export const DarkMode: Story = {
   args: {
-    darkMode: true,
+    dark: true,
     children: "Dark Mode",
   },
 };

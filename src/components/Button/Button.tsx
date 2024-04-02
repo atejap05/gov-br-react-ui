@@ -27,10 +27,10 @@ const buttonVariants = cva("br-button", {
       info: "info",
     },
     size: {
-      xs: "xsmall",
-      sm: "small",
-      md: "medium",
-      lg: "large",
+      xs: "xsmall text-xs",
+      sm: "small text-sm",
+      md: "medium text-base",
+      lg: "large text-lg",
     },
     circle: {
       true: "circle",
