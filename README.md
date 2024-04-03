@@ -30,15 +30,15 @@ Para começar a usar nossa biblioteca de componentes, siga estes passos:
 
 2. Instale as dependências:
 
-```node
-npm install
-```
+   ```node
+   npm install
+   ```
 
 3. Inicie o projeto:
 
-```node
-npm run dev
-```
+   ```node
+   npm run dev
+   ```
 
 ## Documentação
 
