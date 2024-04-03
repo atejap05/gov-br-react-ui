@@ -5,12 +5,9 @@ export default {
   important: true, // Add !important to all utilities (optional)
   theme: {
     extend: {
-      colors: {
-        teste01: "#FF6363",
-        teste02: {
-          100: "#E2E2D5",
-          200: "#888883",
-        },
+      colors: {},
+      fontFamily: {
+        rawline: ["Rawline", "Raleway", "sans-serif"],
       },
     },
   },

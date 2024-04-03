@@ -1,4 +1,6 @@
+import { faBarChart } from "@fortawesome/free-solid-svg-icons";
 import { Button } from "./components/Button";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function AppTest() {
   return (
@@ -12,8 +14,8 @@ function AppTest() {
           <Button variant="secondary" dark block>
             Secondary
           </Button>
-          <Button variant="tertiary" dark block>
-            Tertiary
+          <Button variant="secondary" circle>
+            <FontAwesomeIcon icon={faBarChart} />
           </Button>
         </div>
       </div>

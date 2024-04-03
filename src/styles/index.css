@@ -1,10 +1,16 @@
+/* Typography: https://www.gov.br/ds/fundamentos-visuais/tipografia */
+@import url("https://fonts.cdnfonts.com/css/rawline");
+@import url("https://fonts.cdnfonts.com/css/raleway-5");
+
+/* CSS Core --> Setup bases*/
 @import url("./base.style.css");
+
+/* Components*/
 @import url("./divider.style.css");
 @import url("./card.style.css");
 @import url("./button.style.css");
 
-
-
+/* Tailwind itself utilities */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
