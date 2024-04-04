@@ -4,9 +4,11 @@ function AppTest() {
   return (
     <div className="flex place-items-center place-content-center h-screen w-full">
       <Avatar
-        src="dfasdfasdfase"
+        icon
+        size="sm"
+        src="https://avatars.githubusercontent.com/u/67137854?v=4"
         alt="Fulano da Silva"
-        className="bg-green-200 text-gray-900"
+        className="bg-gray-200 text-gray-100"
       />
     </div>
   );

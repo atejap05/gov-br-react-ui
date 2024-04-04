@@ -5,6 +5,8 @@ import { AvatarContent } from "./AvatarContent";
 
 /////////// Avatar Component ///////////
 
+// TODO: Add status prop to Avatar component
+
 const avatarVariants = cva("br-avatar", {
   variants: {
     size: {
@@ -12,7 +14,6 @@ const avatarVariants = cva("br-avatar", {
       md: "medium",
       lg: "large",
     },
-
     // status: {
     //   online: " online",
     //   offline: "offline",
@@ -30,10 +31,14 @@ export type AvatarProps = React.HtmlHTMLAttributes<HTMLSpanElement> & {
   size?: "sm" | "md" | "lg";
   src: string;
   alt: string;
+  icon?: boolean;
 };
 
 export const Avatar = React.forwardRef<HTMLSpanElement, AvatarProps>(
-  ({ size = "md", src, alt, className, ...props }: AvatarProps, ref) => {
+  (
+    { size = "md", icon = false, src, alt, className, ...props }: AvatarProps,
+    ref
+  ) => {
     const classes = cn(avatarVariants({ size }), className);
     return (
       <span className="br-avatar">
@@ -42,6 +47,7 @@ export const Avatar = React.forwardRef<HTMLSpanElement, AvatarProps>(
           className={classes}
           src={src}
           alt={alt}
+          icon={icon}
           {...props}
         />
       </span>
