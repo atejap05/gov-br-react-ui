@@ -8,7 +8,6 @@ const meta: Meta<typeof Avatar> = {
   parameters: {
     layout: "centered",
   },
-  tags: ["autodocs"],
 };
 
 export default meta;
@@ -22,17 +21,17 @@ export const TiposDensidade: Story = {
       <div className="flex gap-4">
         <Avatar
           size="sm"
-          src="https://avatars.githubusercontent.com/u/67137854?v=4"
+          src="https://picsum.photos/id/1005/400"
           alt="Fulano da Silva"
         />
         <Avatar
           size="md"
-          src="https://avatars.githubusercontent.com/u/67137854?v=4"
+          src="https://picsum.photos/id/287/400"
           alt="Fulano da Silva"
         />
         <Avatar
           size="lg"
-          src="https://avatars.githubusercontent.com/u/67137854?v=4"
+          src="https://picsum.photos/id/357/400"
           alt="Fulano da Silva"
         />
       </div>
