@@ -8,7 +8,7 @@ function AppTest() {
         size="sm"
         src="https://avatars.githubusercontent.com/u/67137854?v=4"
         alt="Fulano da Silva"
-        className="bg-gray-200 text-gray-100"
+        className="bg-red-200 text-red-100"
       />
     </div>
   );
