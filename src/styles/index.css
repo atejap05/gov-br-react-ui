@@ -10,6 +10,7 @@
 @import url("./card.style.css");
 @import url("./button.style.css");
 @import url("./avatar.style.css");
+@import url("./input.style.css");
 
 /* Tailwind itself utilities */
 @tailwind base;
