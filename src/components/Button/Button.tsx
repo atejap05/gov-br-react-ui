@@ -85,6 +85,7 @@ export type ButtonProps = React.HtmlHTMLAttributes<HTMLButtonElement> & {
   loading?: boolean;
   dark?: boolean;
   block?: boolean;
+  type?: "button" | "submit" | "reset";
 };
 
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
@@ -99,6 +100,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       dark,
       block,
       children,
+      type = "button",
       className,
       ...props
     }: ButtonProps,
@@ -107,6 +109,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     return (
       <button
         ref={ref}
+        type={type}
         className={cn(
           buttonVariants({
             variant,

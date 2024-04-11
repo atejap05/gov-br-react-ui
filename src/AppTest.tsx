@@ -1,14 +1,61 @@
-import { Avatar } from "./components/Avatar";
+import { Input } from "./components/Input";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
+import { useRef } from "react";
 
 function AppTest() {
+  // const input01 = useRef<HTMLInputElement>(null);
+  // const input02 = useRef<HTMLInputElement>(null);
+  const input03 = useRef<HTMLInputElement>(null);
+
+  // useEffect(() => {
+  //   console.log(input01.current?.value);
+  //   console.log(input02.current?.value);
+  //   console.log(input03.current?.value);
+  // }, []);
+
   return (
-    <div className="flex place-items-center place-content-center h-screen w-full">
-      <Avatar
-        icon
-        size="sm"
-        src="https://avatars.githubusercontent.com/u/67137854?v=4"
-        alt="Fulano da Silva"
-        className="bg-red-200 text-red-100"
+    <div className="flex flex-col gap-4 place-items-center place-content-center h-screen w-full">
+      {/* <h3> Sem Label</h3>
+      <Input
+        ref={input01}
+        highlight
+        label="Test Input"
+        onChange={value =>
+          console.log((value.target as HTMLInputElement).value)
+        }
+        size="md"
+        placeholder="Test Input sem Label"
+        type="text"
+        id="test-input-sem-label"
+      />
+
+      <h3> Com Label</h3>
+
+      <Input
+        ref={input02}
+        onChange={value =>
+          console.log((value.target as HTMLInputElement).value)
+        }
+        size="md"
+        placeholder="Test Input com Label"
+        type="text"
+        id="test-input-com-label"
+        label="Test Input"
+      /> */}
+
+      <h3> Com Button</h3>
+
+      <Input
+        ref={input03}
+        onChange={value =>
+          console.log((value.target as HTMLInputElement).value)
+        }
+        size="md"
+        placeholder="Test Input com Icon"
+        id="test-input-com-icon"
+        label="Test Input"
+        icon={faUser}
+        type="password"
       />
     </div>
   );
