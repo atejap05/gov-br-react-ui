@@ -1,23 +1,25 @@
 import { Input } from "./components/Input";
 import { faUser } from "@fortawesome/free-solid-svg-icons";
-import { useEffect, useRef } from "react";
+import { useRef } from "react";
 
 function AppTest() {
-  const input01 = useRef<HTMLInputElement>(null);
-  const input02 = useRef<HTMLInputElement>(null);
+  // const input01 = useRef<HTMLInputElement>(null);
+  // const input02 = useRef<HTMLInputElement>(null);
   const input03 = useRef<HTMLInputElement>(null);
 
-  useEffect(() => {
-    console.log(input01.current?.value);
-    console.log(input02.current?.value);
-    console.log(input03.current?.value);
-  }, []);
+  // useEffect(() => {
+  //   console.log(input01.current?.value);
+  //   console.log(input02.current?.value);
+  //   console.log(input03.current?.value);
+  // }, []);
 
   return (
     <div className="flex flex-col gap-4 place-items-center place-content-center h-screen w-full">
-      <h3> Sem Label</h3>
+      {/* <h3> Sem Label</h3>
       <Input
         ref={input01}
+        highlight
+        label="Test Input"
         onChange={value =>
           console.log((value.target as HTMLInputElement).value)
         }
@@ -39,9 +41,10 @@ function AppTest() {
         type="text"
         id="test-input-com-label"
         label="Test Input"
-      />
+      /> */}
 
-      <h3> Com Icon</h3>
+      <h3> Com Button</h3>
+
       <Input
         ref={input03}
         onChange={value =>
@@ -49,10 +52,10 @@ function AppTest() {
         }
         size="md"
         placeholder="Test Input com Icon"
-        type="text"
         id="test-input-com-icon"
         label="Test Input"
         icon={faUser}
+        type="password"
       />
     </div>
   );

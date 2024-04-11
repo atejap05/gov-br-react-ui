@@ -1,3 +1,2 @@
-export { GenericInput } from "./GenericInput";
-export { IconInput } from "./IconInput";
+export { BasicInput } from "./BasicInput";
 export { Input } from "./Input";

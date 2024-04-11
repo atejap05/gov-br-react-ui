@@ -1,9 +1,10 @@
 import React from "react";
 import { cva } from "class-variance-authority";
 import { cn } from "../../utils";
-import { FontAwesomeIconProps } from "@fortawesome/react-fontawesome";
-import { GenericInput } from "./GenericInput";
-import { IconInput } from "./IconInput";
+import { BasicInput } from "./BasicInput";
+import { InputProps } from "./@types";
+import { InputButton } from "./InputButton";
+import { useState } from "react";
 
 const inputVariants = cva("br-input", {
   variants: {
@@ -12,62 +13,58 @@ const inputVariants = cva("br-input", {
       md: "medium",
       lg: "large",
     },
-    outlined: {
+    highlight: {
       true: "input-highlight",
+      false: "",
+    },
+    inline: {
+      true: "input-inline",
       false: "",
     },
   },
 });
-
-export type InputProps = React.HtmlHTMLAttributes<HTMLInputElement> & {
-  size?: "sm" | "md" | "lg";
-  outlined?: boolean;
-  placeholder?: string;
-  type?: "text" | "password" | "email" | "number";
-  id: string;
-  label?: string;
-  icon?: FontAwesomeIconProps["icon"];
-};
 
 export const Input = React.forwardRef<HTMLInputElement, InputProps>(
   (
     {
       size = "md",
       type = "text",
-      outlined = false,
+      highlight = false,
+      inline = false,
       icon,
-      label,
       id,
+      label,
       placeholder,
+
       className,
       ...props
     }: InputProps,
     ref
   ) => {
-    const classes = cn(inputVariants({ size, outlined }), className);
+    const [inputType, setInputType] = useState(type);
+
+    const classes = cn(inputVariants({ size, highlight, inline }), className);
 
     return (
-      <div className={classes}>
-        {label ? <label htmlFor={id}>{label}</label> : null}
-        {!icon ? (
-          <GenericInput
-            ref={ref}
-            type={type}
-            id={id}
-            placeholder={placeholder}
-            {...props}
+      <div
+        className={cn(classes, {
+          "input-button": true,
+        })}
+      >
+        <BasicInput
+          ref={ref}
+          type={inputType}
+          label={label}
+          placeholder={placeholder}
+          id={id}
+          icon={icon}
+          {...props}
+        >
+          <InputButton
+            onToggleIcon={value => setInputType(value)}
+            inputType={type}
           />
-        ) : null}
-        {icon ? (
-          <IconInput
-            ref={ref}
-            Icon={icon}
-            placeholder={placeholder}
-            id={id}
-            type={type}
-            {...props}
-          />
-        ) : null}
+        </BasicInput>
       </div>
     );
   }
