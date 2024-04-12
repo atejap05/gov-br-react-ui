@@ -23,7 +23,7 @@ type InputButtonAction = {
 
 const initialState: InputButtonState = {
   inputType: "password",
-  icon: faEye,
+  icon: faEyeSlash,
 };
 
 const inputButtonReducer = (
