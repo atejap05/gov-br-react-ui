@@ -1,6 +1,10 @@
 import { cva } from "class-variance-authority";
 import { cn } from "../../utils";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  FontAwesomeIcon,
+  FontAwesomeIconProps,
+} from "@fortawesome/react-fontawesome";
+
 import {
   faInfoCircle,
   faCheckCircle,
@@ -9,23 +13,48 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 const InputFeedbackVariants = cva(
-  "flex justify-start items-center gap-1 py-1 px-2 w-fit font-semibold text-sm rounded-md italic",
+  "flex justify-start items-center gap-2 py-1 px-2 w-fit font-semibold italic",
   {
     variants: {
       status: {
-        danger: "bg-[#e52207] text-white italic ",
-        warning: "bg-[#ffcd07] italic",
-        info: "bg-[#155bcb] text-white italic",
-        success: "bg-[#168821] text-white  italic",
+        danger: "bg-[#e52207] text-white",
+        warning: "bg-[#ffcd07]",
+        info: "bg-[#155bcb] text-white",
+        success: "bg-[#168821] text-white ",
       },
     },
   }
 );
 
+type Status = "danger" | "warning" | "info" | "success" | null;
+
 type InputFeedbackProps = {
-  status?: "danger" | "warning" | "info" | "success" | null;
+  status?: Status;
   feedback: string;
   className?: string;
+};
+
+const FeedBackIcon = ({ status }: { status: Status }) => {
+  let icon: FontAwesomeIconProps["icon"];
+
+  switch (status) {
+    case "danger":
+      icon = faTimesCircle;
+      break;
+    case "warning":
+      icon = faExclamationTriangle;
+      break;
+    case "info":
+      icon = faInfoCircle;
+      break;
+    case "success":
+      icon = faCheckCircle;
+      break;
+    case null:
+      return null;
+  }
+
+  return <FontAwesomeIcon icon={icon} />;
 };
 
 export const InputFeedback = ({
@@ -35,33 +64,15 @@ export const InputFeedback = ({
 }: InputFeedbackProps) => {
   const classes = cn(InputFeedbackVariants({ status }), className);
 
+  if (feedback && !status) {
+    console.warn("You must provide a status prop when feedback is provided.");
+  }
+
+  if (!status) return null;
+
   return (
     <span className={classes}>
-      {status === "danger" && (
-        <FontAwesomeIcon
-          icon={faTimesCircle}
-          className={InputFeedbackVariants({ status })}
-        />
-      )}
-      {status === "warning" && (
-        <FontAwesomeIcon
-          icon={faExclamationTriangle}
-          className={InputFeedbackVariants({ status })}
-        />
-      )}
-      {status === "info" && (
-        <FontAwesomeIcon
-          icon={faInfoCircle}
-          className={InputFeedbackVariants({ status })}
-        />
-      )}
-      {status === "success" && (
-        <FontAwesomeIcon
-          icon={faCheckCircle}
-          className={InputFeedbackVariants({ status })}
-        />
-      )}
-
+      <FeedBackIcon status={status} />
       {feedback}
     </span>
   );
