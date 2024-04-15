@@ -8,6 +8,7 @@ export type InputVariants = {
   size: InputSizes;
   highlight: boolean;
   inline: boolean;
+  status?: "danger" | "warning" | "info" | "success" | null;
 };
 
 // export type InputButtonProps = {
@@ -20,7 +21,10 @@ export type InputProps = React.HtmlHTMLAttributes<HTMLInputElement> & {
   size?: InputSizes;
   highlight?: boolean;
   inline?: boolean;
+  status?: "danger" | "warning" | "info" | "success" | null;
   placeholder?: string;
+  disabled?: boolean;
+  feedback?: string;
   buttonIcon?: FontAwesomeIconProps["icon"];
   type?: InputTypes;
   label?: string;
