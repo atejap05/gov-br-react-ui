@@ -5,11 +5,12 @@ import {
   FontAwesomeIcon,
   FontAwesomeIconProps,
 } from "@fortawesome/react-fontawesome";
-import { faEye, faEyeSlash } from "@fortawesome/free-solid-svg-icons";
+import { faEye, faEyeSlash, faSearch } from "@fortawesome/free-solid-svg-icons";
 
 type InputButtonProps = {
   inputType: InputTypes;
   onToggleIcon?: (value: InputTypes) => void;
+  onClickSearch?: () => void;
 };
 
 type InputButtonState = {
@@ -46,7 +47,13 @@ const inputButtonReducer = (
   }
 };
 
-export const InputButton = ({ inputType, onToggleIcon }: InputButtonProps) => {
+const inplementedButton = ["password", "search"];
+
+export const InputButton = ({
+  inputType,
+  onToggleIcon,
+  onClickSearch,
+}: InputButtonProps) => {
   const [state, dispatch] = useReducer(inputButtonReducer, initialState);
 
   const toggleIcon = () => {
@@ -55,7 +62,15 @@ export const InputButton = ({ inputType, onToggleIcon }: InputButtonProps) => {
     onToggleIcon?.(state.inputType as InputTypes);
   };
 
-  if (inputType !== "password") return null;
+  if (!inplementedButton.includes(inputType)) return null;
+
+  if (inputType === "search") {
+    return (
+      <Button circle size="xs" variant="tertiary" onClick={onClickSearch}>
+        <FontAwesomeIcon icon={faSearch} />
+      </Button>
+    );
+  }
 
   return (
     <Button circle size="xs" variant="tertiary" onClick={toggleIcon}>
