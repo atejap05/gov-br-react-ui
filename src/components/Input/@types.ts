@@ -30,5 +30,6 @@ export type InputProps = React.HtmlHTMLAttributes<HTMLInputElement> & {
   label?: string;
   id: string;
   icon?: FontAwesomeIconProps["icon"];
+  onSearch?: (value: string) => void;
   // button?: InputButtonProps;
 };

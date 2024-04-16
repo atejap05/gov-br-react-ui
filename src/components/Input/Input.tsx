@@ -1,9 +1,8 @@
-import { useState, forwardRef } from "react";
+import { forwardRef } from "react";
 import { cva } from "class-variance-authority";
 import { cn } from "../../utils";
 import { BasicInput } from "./BasicInput";
 import { InputProps } from "./@types";
-import { InputButton } from "./InputButton";
 
 const inputVariants = cva("br-input", {
   variants: {
@@ -44,40 +43,42 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
       label,
       placeholder,
       className,
+      onSearch,
       ...props
     }: InputProps,
     ref
   ) => {
-    const [inputType, setInputType] = useState(type);
-
     const classes = cn(
       inputVariants({ size, highlight, inline, status }),
       className
     );
 
+    // TODO: analisar a necessidade de remover essa validação e subsituir por um warning
+    if (type !== "search" && onSearch) {
+      throw new Error(
+        "The prop 'onSearch' is only available for type 'search'."
+      );
+    }
+
     return (
       <div
         className={cn(classes, {
-          "input-button": true,
+          "input-button": type === "password" || type === "search",
         })}
       >
         <BasicInput
           ref={ref}
-          type={inputType}
+          type={type}
           label={label}
           placeholder={placeholder}
           id={id}
           icon={icon}
           disabled={disabled}
           status={status}
+          onSearch={onSearch}
           feedback={feedback}
           {...props}
-        >
-          <InputButton
-            onToggleIcon={value => setInputType(value)}
-            inputType={type}
-          />
-        </BasicInput>
+        />
       </div>
     );
   }
