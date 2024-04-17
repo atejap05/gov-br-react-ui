@@ -18,10 +18,22 @@ export type BasicInputProps = React.InputHTMLAttributes<HTMLInputElement> & {
   icon?: FontAwesomeIconProps["icon"];
 };
 
+// TODO: Separar componentes acessorios em arquivos próprios
+
 const InputIcon = (icon: FontAwesomeIconProps["icon"]) => {
   return (
     <div className="input-icon">
       <FontAwesomeIcon icon={icon} />
+    </div>
+  );
+};
+
+const InputLabel = ({ label, id }: { label: string; id: string }) => {
+  return (
+    <div className="input-label">
+      <label className="text-nowrap" htmlFor={id}>
+        {label}
+      </label>
     </div>
   );
 };
@@ -38,7 +50,7 @@ const BasicInput = forwardRef<HTMLInputElement, BasicInputProps>(
 
     return (
       <>
-        {label ? <label htmlFor={id}>{label}</label> : null}
+        {label ? <InputLabel id={id} label={label} /> : null}
         <div className="input-group">
           {icon ? InputIcon(icon) : null}
           <input
