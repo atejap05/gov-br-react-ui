@@ -1,0 +1,9 @@
+import{j as s}from"./index-Bo_hk2WC.js";import{I as e}from"./Input-BfLw5_BT.js";import"./index-CsdIBAqE.js";import"./index-OAp9FMst.js";import"./index-MS7LKRHD.js";import"./Button-BtkAxvgN.js";const E={title:"Components/Input/Size",component:e,tags:["autodocs"],parameters:{layout:"centered"}},r={render:()=>s.jsx(e,{id:"input-default",placeholder:"Text Something ..."})},t={render:()=>s.jsx(e,{id:"input-small",placeholder:"Text Something ...",size:"sm"})},o={render:()=>s.jsx(e,{id:"input-medium",placeholder:"Text Something ...",size:"md"})},a={render:()=>s.jsx(e,{id:"input-large",placeholder:"Text Something ...",size:"lg"})};var n,m,i;r.parameters={...r.parameters,docs:{...(n=r.parameters)==null?void 0:n.docs,source:{originalSource:`{
+  render: () => <Input id="input-default" placeholder="Text Something ..." />
+}`,...(i=(m=r.parameters)==null?void 0:m.docs)==null?void 0:i.source}}};var p,d,c;t.parameters={...t.parameters,docs:{...(p=t.parameters)==null?void 0:p.docs,source:{originalSource:`{
+  render: () => <Input id="input-small" placeholder="Text Something ..." size="sm" />
+}`,...(c=(d=t.parameters)==null?void 0:d.docs)==null?void 0:c.source}}};var l,u,g;o.parameters={...o.parameters,docs:{...(l=o.parameters)==null?void 0:l.docs,source:{originalSource:`{
+  render: () => <Input id="input-medium" placeholder="Text Something ..." size="md" />
+}`,...(g=(u=o.parameters)==null?void 0:u.docs)==null?void 0:g.source}}};var h,x,S;a.parameters={...a.parameters,docs:{...(h=a.parameters)==null?void 0:h.docs,source:{originalSource:`{
+  render: () => <Input id="input-large" placeholder="Text Something ..." size="lg" />
+}`,...(S=(x=a.parameters)==null?void 0:x.docs)==null?void 0:S.source}}};const L=["Default","Small","Medium","Large"];export{r as Default,a as Large,o as Medium,t as Small,L as __namedExportsOrder,E as default};
