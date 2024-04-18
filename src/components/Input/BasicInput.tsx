@@ -61,6 +61,7 @@ const BasicInput = forwardRef<HTMLInputElement, BasicInputProps>(
             autoComplete="new-password"
             {...props}
           />
+
           <InputButton
             onToggleIcon={value => setInputType(value)}
             inputType={type as InputTypes}

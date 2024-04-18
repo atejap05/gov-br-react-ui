@@ -5,6 +5,7 @@ import { Input } from "../../../components/Input";
 
 const meta: Meta<typeof Input> = {
   title: "Components/Input",
+  component: Input,
   tags: ["autodocs"],
   parameters: {
     layout: "centered",
@@ -13,10 +14,18 @@ const meta: Meta<typeof Input> = {
 
 export default meta;
 
-type Story = StoryObj<typeof meta>;
+type Story = StoryObj<typeof Input>;
 
 export const Default: Story = {
-  render: () => <Input id="input-default" placeholder="Text Something ..." />,
+  args: {
+    id: "input-default",
+    label: "Label/Rótulo",
+    placeholder: "Text Something ...",
+    inline: false,
+    highlight: false,
+    disabled: false,
+    type: "text",
+  },
 };
 
 export const Label: Story = {

@@ -11,12 +11,6 @@ export type InputVariants = {
   status?: "danger" | "warning" | "info" | "success" | null;
 };
 
-// export type InputButtonProps = {
-//   icon: FontAwesomeIconProps["icon"];
-//   color?: string;
-//   action: () => void;
-// };
-
 export type InputProps = React.HtmlHTMLAttributes<HTMLInputElement> & {
   size?: InputSizes;
   highlight?: boolean;
@@ -31,5 +25,4 @@ export type InputProps = React.HtmlHTMLAttributes<HTMLInputElement> & {
   id: string;
   icon?: FontAwesomeIconProps["icon"];
   onSearch?: (value: string) => void;
-  // button?: InputButtonProps;
 };
