@@ -4,7 +4,7 @@ import { cn } from "../../utils";
 import { BasicInput } from "./BasicInput";
 import { InputProps } from "./@types";
 
-const inputVariants = cva("br-input", {
+const inputVariants = cva("br-input w-full", {
   variants: {
     size: {
       sm: "small",
