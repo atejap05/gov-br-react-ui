@@ -12,6 +12,7 @@
 @import url("./avatar.style.css");
 @import url("./input.style.css");
 @import url("./item.style.css");
+@import url("./switch.style.css");
 
 /* Tailwind itself utilities */
 @tailwind base;
