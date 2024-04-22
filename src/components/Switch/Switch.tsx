@@ -4,9 +4,6 @@ import { cn } from "../../utils";
 
 //// Switch Component ////
 
-// TODO: Add icon support
-// TODO: To render icon variant, we need setup font-family Font Awesome 5 Free
-
 const switchVariants = cva("br-switch", {
   variants: {
     size: {
@@ -23,10 +20,10 @@ const switchVariants = cva("br-switch", {
       top: "top",
       left: "",
     },
-    // icon: {
-    //   true: "icon",
-    //   false: "",
-    // },
+    icon: {
+      true: "icon",
+      false: "",
+    },
   },
 });
 
@@ -34,7 +31,7 @@ export type SwitchProps = React.HtmlHTMLAttributes<HTMLInputElement> & {
   size?: "sm" | "md" | "lg";
   disabled?: boolean;
   align?: "right" | "top" | "left";
-  // icon?: boolean;
+  icon?: boolean;
   id: string;
   name?: string;
   label: string;
@@ -48,7 +45,7 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(
       size = "md",
       disabled = false,
       align,
-      // icon,
+      icon,
       id,
       label,
       value,
@@ -59,7 +56,7 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(
     ref
   ) => {
     const classes = cn(
-      switchVariants({ size, disabled, align /* icon */ }),
+      switchVariants({ size, disabled, align, icon }),
       className
     );
 
