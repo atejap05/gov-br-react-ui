@@ -18,5 +18,8 @@ export const Default: Story = {
   args: {
     label: "Switch",
     id: "switch",
+    align: "left",
+    icon: false,
+    size: "md",
   },
 };

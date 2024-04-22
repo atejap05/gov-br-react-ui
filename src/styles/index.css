@@ -1,6 +1,7 @@
 /* Typography: https://www.gov.br/ds/fundamentos-visuais/tipografia */
 @import url("https://fonts.cdnfonts.com/css/rawline");
 @import url("https://fonts.cdnfonts.com/css/raleway-5");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css");
 
 /* CSS Core --> Setup bases*/
 @import url("./base.style.css");
