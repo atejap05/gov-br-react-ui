@@ -44,8 +44,8 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(
     {
       size = "md",
       disabled = false,
-      align,
-      icon,
+      align = "left",
+      icon = false,
       id,
       label,
       value,
