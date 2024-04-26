@@ -15,6 +15,7 @@
 @import url("./item.style.css");
 @import url("./switch.style.css");
 @import url("./checkbox.style.css");
+@import url("./radio.style.css");
 
 /* Tailwind itself utilities */
 @tailwind base;
