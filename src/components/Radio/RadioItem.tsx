@@ -56,7 +56,6 @@ export const RadioItem = React.forwardRef<HTMLInputElement, RadioItemProps>(
           name={name}
           value={value}
           type="radio"
-          className="sr-only"
           {...props}
         />
         <label htmlFor={id}>{label}</label>
