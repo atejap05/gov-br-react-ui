@@ -17,6 +17,7 @@
 @import url("./checkbox.style.css");
 @import url("./radio.style.css");
 @import url("./alert.style.css");
+@import url("./message.style.css");
 
 /* Tailwind itself utilities */
 @tailwind base;
