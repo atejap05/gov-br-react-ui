@@ -70,11 +70,7 @@ export const Message = ({
       <div className="icon">
         <FontAwesomeIcon icon={icon} className="text-xl" />
       </div>
-      <div
-        className="content"
-        aria-label="Data de início do afastamento inválida. A data não pode ser superior à data atual."
-        role="alert"
-      >
+      <div className="content" aria-label={title}>
         <span className="message-title mr-1">{title}</span>
         <span className="message-body">{message}</span>
       </div>
