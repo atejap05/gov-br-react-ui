@@ -23,7 +23,7 @@ const checboxVariants = cva("br-checkbox mt-0", {
 
 export type CheckboxProps = React.InputHTMLAttributes<HTMLInputElement> & {
   className?: string;
-  label: string;
+  label?: string;
   id: string;
   name: string;
   valid?: boolean;
