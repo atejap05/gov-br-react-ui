@@ -1,6 +1,7 @@
 import { cva } from "class-variance-authority";
 import { cn } from "../../utils";
 import { RadioItem, RadioItemProps } from "./RadioItem";
+import { Alert, type AlertProps } from "../Alert";
 
 /////// RadioGroup ///////
 
@@ -18,7 +19,7 @@ export type RadioGroupProps = {
   title?: string;
   subtitle?: string;
   orientation?: "horizontal" | "vertical";
-  feedback?: string;
+  feedback?: AlertProps;
   className?: string;
   onChoose?: (value: string) => void;
   options: RadioItemProps[];
@@ -49,7 +50,7 @@ export const RadioGroup = ({
           />
         </div>
       ))}
-      {feedback && <p>{feedback}</p>}
+      {feedback && <Alert status={feedback.status} text={feedback.text} />}
     </div>
   );
 };

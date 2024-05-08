@@ -1,8 +1,8 @@
 import { Meta, StoryObj } from "@storybook/react";
-import { RadioItem } from "../../components/Radio";
+import { RadioItem } from "../../../components/Radio";
 
 const meta: Meta<typeof RadioItem> = {
-  title: "components/RadioItem",
+  title: "components/Radio/RadioItem",
   component: RadioItem,
   tags: ["autodocs"],
   parameters: {
