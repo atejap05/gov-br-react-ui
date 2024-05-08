@@ -8,7 +8,7 @@ import {
   faExclamationTriangle,
 } from "@fortawesome/free-solid-svg-icons";
 
-const alertVariants = cva("feedback font-semibold tracking-wide", {
+const alertVariants = cva("feedback tracking-wide px-2", {
   variants: {
     status: {
       danger: "danger",
