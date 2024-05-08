@@ -1,5 +1,4 @@
-import React from "react";
-
+import { forwardRef } from "react";
 import { cva } from "class-variance-authority";
 import { cn } from "../../utils";
 
@@ -17,7 +16,9 @@ export type ListItemProps = React.LiHTMLAttributes<HTMLLIElement> & {
   className?: string;
 };
 
-export const ListItem = React.forwardRef<HTMLLIElement, ListItemProps>(
+// TODO: feature: when checkbox is checked, add class selected
+
+export const ListItem = forwardRef<HTMLLIElement, ListItemProps>(
   ({ children, selected, className, ...props }: ListItemProps, ref) => {
     const classes = cn(listItemVariants({ selected }), className);
     return (
