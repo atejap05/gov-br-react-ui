@@ -2,6 +2,7 @@ import {
   FontAwesomeIcon,
   FontAwesomeIconProps,
 } from "@fortawesome/react-fontawesome";
+import "@/styles/index.css";
 
 export type ListItemIconProps = React.HTMLAttributes<HTMLDivElement> & {
   icon: FontAwesomeIconProps["icon"];

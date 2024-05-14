@@ -1,7 +1,7 @@
 import React from "react";
 import { cva } from "class-variance-authority";
 import { cn } from "../../utils";
-
+import "@/styles/index.css";
 ///// ItemButton Component /////
 
 const itemButtonVariants = cva("br-item", {

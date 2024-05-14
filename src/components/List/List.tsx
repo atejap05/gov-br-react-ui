@@ -2,6 +2,7 @@ import React from "react";
 import { ListTitle } from "./ListTitle";
 import { cva } from "class-variance-authority";
 import { cn } from "../../utils";
+import "@/styles/index.css";
 
 const listVariants = cva("br-list w-full p-0 m-0", {
   variants: {

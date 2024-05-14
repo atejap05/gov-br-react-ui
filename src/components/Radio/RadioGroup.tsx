@@ -2,7 +2,7 @@ import { cva } from "class-variance-authority";
 import { cn } from "../../utils";
 import { RadioItem, RadioItemProps } from "./RadioItem";
 import { Alert, type AlertProps } from "../Alert";
-
+import "@/styles/index.css";
 /////// RadioGroup ///////
 
 const radioGroupVariants = cva("", {

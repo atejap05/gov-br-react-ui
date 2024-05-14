@@ -23,7 +23,8 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    "declaration": true
+    "declaration": true,
+    "typeRoots": ["./dist/index.d.ts"]
   },
   "include": ["src"],
   "exclude": ["src/**/__docs__", "src/**/__test__"],

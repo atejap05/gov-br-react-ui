@@ -1,6 +1,7 @@
 import { forwardRef } from "react";
 import { cva } from "class-variance-authority";
 import { cn } from "../../utils";
+import "@/styles/index.css";
 
 const listItemVariants = cva("br-item", {
   variants: {

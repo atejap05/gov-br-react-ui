@@ -1,3 +1,4 @@
+import "@/styles/index.css";
 import { cva } from "class-variance-authority";
 import { cn } from "../../utils";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

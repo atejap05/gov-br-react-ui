@@ -1,3 +1,5 @@
+import "@/styles/index.css";
+
 export type ListItemTextProps = React.HTMLAttributes<HTMLDivElement> & {
   primary: string;
   secondary?: string;
