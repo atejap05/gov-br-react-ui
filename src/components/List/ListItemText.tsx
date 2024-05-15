@@ -1,4 +1,4 @@
-import "@/styles/index.css";
+import "../../index.css";
 
 export type ListItemTextProps = React.HTMLAttributes<HTMLDivElement> & {
   primary: string;

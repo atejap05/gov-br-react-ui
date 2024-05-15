@@ -1,4 +1,4 @@
-import "@/styles/index.css";
+import "../../index.css";
 import React, { useState } from "react";
 import { cva } from "class-variance-authority";
 import { cn } from "../../utils";

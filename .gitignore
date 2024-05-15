@@ -29,4 +29,4 @@ dist-ssr
 # Arquivo de teste
 src/AppTest.tsx
 src/main.tsx
-src/index.html
+index.html

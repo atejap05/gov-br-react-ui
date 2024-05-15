@@ -1,5 +1,5 @@
 import { Checkbox, CheckboxProps } from "../Checkbox";
-import "@/styles/index.css";
+import "../../index.css";
 
 export type ListItemCheckboxProps = CheckboxProps & {
   label?: string;

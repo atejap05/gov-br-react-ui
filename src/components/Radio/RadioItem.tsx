@@ -1,7 +1,7 @@
 import React from "react";
 import { cva } from "class-variance-authority";
 import { cn } from "../../utils";
-import "@/styles/index.css";
+import "../../index.css";
 
 const radioItemVariants = cva("br-radio", {
   variants: {

@@ -1,5 +1,5 @@
 import { cn } from "../../utils";
-import "@/styles/index.css";
+import "../../index.css";
 
 type ListTitleProps = {
   title: string;
