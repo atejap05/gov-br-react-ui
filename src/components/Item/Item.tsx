@@ -1,7 +1,6 @@
 import "../../index.css";
 import React from "react";
 import { cva } from "class-variance-authority";
-import { cn } from "../../utils";
 import { Button } from "../Button";
 import {
   FontAwesomeIcon,
@@ -13,7 +12,7 @@ import {
 const itemVariants = cva("br-item", {
   variants: {
     disabled: {
-      true: "opacity-50 cursor-not-allowed z-10",
+      true: "disabled",
       false: "",
     },
     selected: {
@@ -60,7 +59,7 @@ export const Item = ({
   children,
   className,
 }: ItemProps) => {
-  const classes = cn(itemVariants({ disabled, selected, active }), className);
+  const classes = itemVariants({ disabled, selected, active, className });
 
   return (
     <div id={id} className={classes} aria-disabled={disabled}>

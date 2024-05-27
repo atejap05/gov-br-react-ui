@@ -1,6 +1,5 @@
 import { forwardRef } from "react";
 import { cva } from "class-variance-authority";
-import { cn } from "../../utils";
 import "../../index.css";
 
 const listItemVariants = cva("br-item", {
@@ -21,7 +20,7 @@ export type ListItemProps = React.LiHTMLAttributes<HTMLLIElement> & {
 
 export const ListItem = forwardRef<HTMLLIElement, ListItemProps>(
   ({ children, selected, className, ...props }: ListItemProps, ref) => {
-    const classes = cn(listItemVariants({ selected }), className);
+    const classes = listItemVariants({ selected, className });
     return (
       <li ref={ref} className={classes} {...props}>
         <div className="row align-items-center">{children}</div>

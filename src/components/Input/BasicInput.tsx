@@ -5,8 +5,8 @@ import {
   FontAwesomeIcon,
   FontAwesomeIconProps,
 } from "@fortawesome/react-fontawesome";
-import { InputFeedback } from "./InputFeedback";
 import { InputButton } from "./InputButton";
+import { Alert } from "../Alert";
 
 export type BasicInputProps = React.InputHTMLAttributes<HTMLInputElement> & {
   label?: string;
@@ -69,7 +69,7 @@ const BasicInput = forwardRef<HTMLInputElement, BasicInputProps>(
             onClickSearch={handleSearch}
           />
 
-          {feedback && <InputFeedback status={status} feedback={feedback} />}
+          {feedback && status && <Alert status={status} text={feedback} />}
         </div>
       </>
     );

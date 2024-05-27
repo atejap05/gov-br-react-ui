@@ -1,6 +1,3 @@
-import "../../index.css";
-import { cva } from "class-variance-authority";
-import { cn } from "../../utils";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faTimes,
@@ -8,8 +5,10 @@ import {
   faInfoCircle,
   faExclamationTriangle,
 } from "@fortawesome/free-solid-svg-icons";
+import { cva } from "class-variance-authority";
+import "../../index.css";
 
-const alertVariants = cva("feedback tracking-wide px-2", {
+const alertVariants = cva("feedback", {
   variants: {
     status: {
       danger: "danger",
@@ -42,7 +41,7 @@ const setIcon = (status: string) => {
 };
 
 export const Alert = ({ text, status, className }: AlertProps) => {
-  const classes = cn(alertVariants({ status }), className);
+  const classes = alertVariants({ status, className });
   const icon = setIcon(status);
 
   return (

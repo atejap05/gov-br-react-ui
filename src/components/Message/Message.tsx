@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { cva } from "class-variance-authority";
-import { cn } from "../../utils";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faTimes,
@@ -11,7 +10,7 @@ import {
 import { Button } from "../Button";
 import "../../index.css";
 
-const messageVariants = cva("br-message w-full", {
+const messageVariants = cva("br-message", {
   variants: {
     status: {
       danger: "danger",
@@ -53,7 +52,7 @@ export const Message = ({
   className,
 }: MessageProps) => {
   const [show, setShow] = useState(true);
-  const classes = cn(messageVariants({ status }), className);
+  const classes = messageVariants({ status, className });
   const icon = setIcon(status);
 
   if (duration) {

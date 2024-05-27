@@ -1,13 +1,14 @@
 import React from "react";
 import { cva } from "class-variance-authority";
-import { cn } from "../../utils";
 import "../../index.css";
 ///// ItemButton Component /////
+
+// TODO: Refatorar para reaproveitar os codigos de Item
 
 const itemButtonVariants = cva("br-item", {
   variants: {
     disabled: {
-      true: "opacity-50 cursor-not-allowed z-10",
+      true: "disabled",
       false: "",
     },
     selected: {
@@ -48,10 +49,7 @@ export const ItemButton = ({
   onClick,
   className,
 }: ItemLinkProps) => {
-  const classes = cn(
-    itemButtonVariants({ disabled, selected, active }),
-    className
-  );
+  const classes = itemButtonVariants({ disabled, selected, active, className });
 
   return (
     <button

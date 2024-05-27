@@ -1,6 +1,5 @@
 import { forwardRef } from "react";
 import { cva } from "class-variance-authority";
-import { cn } from "../../utils";
 import "../../index.css";
 
 //// Switch Component ////
@@ -56,10 +55,7 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(
     }: SwitchProps,
     ref
   ) => {
-    const classes = cn(
-      switchVariants({ size, disabled, align, icon }),
-      className
-    );
+    const classes = switchVariants({ size, disabled, align, icon, className });
 
     return (
       <div className={classes}>

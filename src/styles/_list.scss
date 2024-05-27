@@ -1,0 +1,13 @@
+@import "../../node_modules/@govbr-ds/core/src/components/list/list";
+
+.density-medium {
+  li {
+    padding-bottom: var(--spacing-scale-2x) !important;
+  }
+}
+
+.density-low {
+  li {
+    padding-bottom: var(--spacing-scale-3x) !important;
+  }
+}

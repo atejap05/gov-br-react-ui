@@ -1,6 +1,5 @@
 import "../../index.css";
 import React from "react";
-import { cn } from "../../utils";
 import { cva } from "class-variance-authority";
 import { useCardContext } from "./context/card-context";
 
@@ -23,11 +22,7 @@ export const CardHeader = React.forwardRef<HTMLDivElement, CardHeaderProps>(
     }
 
     return (
-      <div
-        ref={ref}
-        className={cn(cardHeaderVariants({}), className)}
-        {...props}
-      />
+      <div ref={ref} className={cardHeaderVariants({ className })} {...props} />
     );
   }
 );

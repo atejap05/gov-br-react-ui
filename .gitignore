@@ -30,3 +30,4 @@ dist-ssr
 src/AppTest.tsx
 src/main.tsx
 index.html
+App.css

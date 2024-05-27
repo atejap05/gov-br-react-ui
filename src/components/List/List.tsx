@@ -1,10 +1,9 @@
 import React from "react";
 import { ListTitle } from "./ListTitle";
 import { cva } from "class-variance-authority";
-import { cn } from "../../utils";
 import "../../index.css";
 
-const listVariants = cva("br-list w-full p-0 m-0", {
+const listVariants = cva("br-list p-0 m-0", {
   variants: {
     orientation: {
       vertical: "",
@@ -12,8 +11,8 @@ const listVariants = cva("br-list w-full p-0 m-0", {
     },
     density: {
       default: "",
-      medium: "[&>li]:py-3",
-      low: "[&>li]:py-4",
+      medium: "density-medium",
+      low: "density-low",
     },
   },
 });
@@ -45,7 +44,7 @@ export const List = React.forwardRef<HTMLUListElement, ListProps>(
     return (
       <ul
         ref={ref}
-        className={cn(listVariants({ orientation, density }), className)}
+        className={listVariants({ orientation, density, className })}
         {...props}
       >
         {header && (
