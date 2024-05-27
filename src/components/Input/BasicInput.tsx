@@ -1,4 +1,4 @@
-import "../../index.css";
+import "../../style.css";
 import { forwardRef, useState, useRef } from "react";
 import type { InputTypes } from "./@types";
 import {

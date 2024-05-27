@@ -1,4 +1,5 @@
 import { cva } from "class-variance-authority";
+import "../../style.css";
 
 const loadingVariants = cva("br-loading", {
   variants: {

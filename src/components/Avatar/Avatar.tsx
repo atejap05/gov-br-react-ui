@@ -1,7 +1,7 @@
 import React from "react";
 import { cva } from "class-variance-authority";
 import { AvatarContent } from "./AvatarContent";
-import "../../index.css";
+import "../../style.css";
 
 /////////// Avatar Component ///////////
 

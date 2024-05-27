@@ -8,7 +8,7 @@ import {
   faExclamationTriangle,
 } from "@fortawesome/free-solid-svg-icons";
 import { Button } from "../Button";
-import "../../index.css";
+import "../../style.css";
 
 const messageVariants = cva("br-message", {
   variants: {

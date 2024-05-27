@@ -1,6 +1,6 @@
 import React from "react";
 import { cva } from "class-variance-authority";
-import "../../index.css";
+import "../../style.css";
 ///// ItemLink Component /////
 
 // TODO: Refatorar para reaproveitar os codigos de Item

@@ -1,4 +1,4 @@
-import "../../index.css";
+import "../../style.css";
 import { cva } from "class-variance-authority";
 import React from "react";
 
