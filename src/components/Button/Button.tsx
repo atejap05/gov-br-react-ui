@@ -1,16 +1,6 @@
 import "../../index.css";
 import React from "react";
 import { cva } from "class-variance-authority";
-import { cn } from "../../utils";
-
-// TODO: Loading component should be moved to a separate file
-// TODO: Provavelmente o Loading css vem do design system, verificar se é necessário manter o css
-
-const Loading = () => (
-  <div className="absolute inline-flex items-center">
-    <div className="w-4 h-4 rounded-full border-2 border-b-transparent animate-spin border-[inherit]" />
-  </div>
-);
 
 /////////// Button Component ///////////
 
@@ -28,19 +18,16 @@ const buttonVariants = cva("br-button", {
       info: "info",
     },
     size: {
-      xs: "xsmall text-xs",
-      sm: "small text-sm",
-      md: "medium text-base",
-      lg: "large text-lg",
+      xs: "xsmall",
+      sm: "small",
+      md: "medium",
+      lg: "large",
     },
     circle: {
       true: "circle",
       false: "",
     },
-    disabled: {
-      true: "disabled cursor-not-allowed",
-      false: "",
-    },
+
     active: {
       true: "active",
       false: "",
@@ -62,7 +49,6 @@ const buttonVariants = cva("br-button", {
     variant: "primary",
     size: "md",
     circle: false,
-    disabled: false,
     active: false,
     loading: false,
     dark: false,
@@ -111,30 +97,20 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       <button
         ref={ref}
         type={type}
-        className={cn(
-          buttonVariants({
-            variant,
-            size,
-            circle,
-            disabled,
-            active,
-            loading,
-            dark,
-            block,
-          }),
-          className
-        )}
+        disabled={disabled || loading}
+        className={buttonVariants({
+          variant,
+          size,
+          circle,
+          active,
+          loading,
+          dark,
+          block,
+          className,
+        })}
         {...props}
       >
-        {loading ? <Loading /> : null}
-        <span
-          className={cn("transition", {
-            "opacity-0": loading,
-            "opacity-100": !loading,
-          })}
-        >
-          {children}
-        </span>
+        {children}
       </button>
     );
   }

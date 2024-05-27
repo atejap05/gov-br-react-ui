@@ -1,8 +1,7 @@
-import "../../index.css";
-import { cva } from "class-variance-authority";
-import { cn } from "../../utils";
 import React from "react";
+import { cva } from "class-variance-authority";
 import { AvatarContent } from "./AvatarContent";
+import "../../index.css";
 
 /////////// Avatar Component ///////////
 
@@ -40,7 +39,7 @@ export const Avatar = React.forwardRef<HTMLSpanElement, AvatarProps>(
     { size = "md", icon = false, src, alt, className, ...props }: AvatarProps,
     ref
   ) => {
-    const classes = cn(avatarVariants({ size }), className);
+    const classes = avatarVariants({ size, className });
     return (
       <span className="br-avatar">
         <AvatarContent

@@ -1,6 +1,5 @@
 import React from "react";
 import { cva } from "class-variance-authority";
-import { cn } from "../../utils";
 import "../../index.css";
 
 const radioItemVariants = cva("br-radio", {
@@ -45,10 +44,8 @@ export const RadioItem = React.forwardRef<HTMLInputElement, RadioItemProps>(
     }: RadioItemProps,
     ref
   ) => {
-    const classes = cn(
-      radioItemVariants({ small, disabled, valid }),
-      className
-    );
+    const classes = radioItemVariants({ small, disabled, valid, className });
+
     return (
       <div className={classes}>
         <input

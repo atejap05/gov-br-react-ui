@@ -1,6 +1,5 @@
 import "../../index.css";
 import React from "react";
-import { cn } from "../../utils";
 import { cva } from "class-variance-authority";
 import { useCardContext } from "./context/card-context";
 
@@ -22,11 +21,7 @@ export const CardFooter = React.forwardRef<HTMLDivElement, CardFooterProps>(
       throw new Error("CardFooter must be a child of Card");
     }
     return (
-      <div
-        ref={ref}
-        className={cn(cardFooterVariants({}), className)}
-        {...props}
-      />
+      <div ref={ref} className={cardFooterVariants({ className })} {...props} />
     );
   }
 );

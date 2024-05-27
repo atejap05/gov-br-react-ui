@@ -1,6 +1,5 @@
 import "../../index.css";
 import { cva } from "class-variance-authority";
-import { cn } from "../../utils";
 import { forwardRef } from "react";
 import { useIsValidImage } from "../../hooks/useIsValidImage";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -19,7 +18,7 @@ export type AvatarProps = React.HtmlHTMLAttributes<HTMLSpanElement> & {
 export const AvatarContent = forwardRef<HTMLSpanElement, AvatarProps>(
   ({ src, alt, icon, className, ...props }: AvatarProps, ref) => {
     const isValidImage = useIsValidImage(src);
-    const classes = cn(avatarVariants(), className);
+    const classes = avatarVariants({ className });
     const getInitials = (name: string) => name[0].toUpperCase();
 
     if (!alt) {

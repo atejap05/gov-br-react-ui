@@ -1,7 +1,6 @@
 import "../../index.css";
 import React, { useState } from "react";
 import { cva } from "class-variance-authority";
-import { cn } from "../../utils";
 import { CardProvider } from "./context/card-context";
 
 /////////// Main Card Component ///////////
@@ -36,21 +35,16 @@ export const Card = React.forwardRef<HTMLDivElement, CardProps>(
       disabled = false,
       hover = false,
       fixed = false,
-
       className,
       ...props
     }: CardProps,
     ref
   ) => {
     const [isCard] = useState(true);
-
+    const classes = cardVariants({ disabled, hover, fixed, className });
     return (
       <CardProvider value={isCard}>
-        <div
-          ref={ref}
-          className={cn(cardVariants({ disabled, hover, fixed }), className)}
-          {...props}
-        />
+        <div ref={ref} className={classes} {...props} />
       </CardProvider>
     );
   }

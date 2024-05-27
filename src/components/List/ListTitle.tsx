@@ -1,4 +1,3 @@
-import { cn } from "../../utils";
 import "../../index.css";
 
 type ListTitleProps = {
@@ -10,7 +9,7 @@ export const ListTitle = ({ title, className }: ListTitleProps) => {
   return (
     <>
       <div className="header">
-        <div className={cn("title", className)}>{title}</div>
+        <div className={"title" + className}>{title}</div>
       </div>
       <span className="br-divider"></span>
     </>

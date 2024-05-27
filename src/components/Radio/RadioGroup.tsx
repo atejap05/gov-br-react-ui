@@ -1,5 +1,4 @@
 import { cva } from "class-variance-authority";
-import { cn } from "../../utils";
 import { RadioItem, RadioItemProps } from "./RadioItem";
 import { Alert, type AlertProps } from "../Alert";
 import "../../index.css";
@@ -34,12 +33,12 @@ export const RadioGroup = ({
   options,
   onChoose,
 }: RadioGroupProps) => {
-  const classes = cn(radioGroupVariants({ orientation }));
+  const classes = radioGroupVariants({ orientation });
 
   return (
-    <div className={cn("p-2", className)}>
-      {title && <p className="label text-lg mb-0">{title}</p>}
-      {subtitle && <p className="help-text text-sm">{subtitle}</p>}
+    <div className={"p-2" + className}>
+      {title && <p className="label mb-0">{title}</p>}
+      {subtitle && <p className="help">{subtitle}</p>}
       {options.map(option => (
         <div key={option.id} className={classes}>
           <RadioItem

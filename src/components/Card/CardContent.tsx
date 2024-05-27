@@ -1,7 +1,6 @@
 import "../../index.css";
 import React from "react";
 import { cva } from "class-variance-authority";
-import { cn } from "../../utils";
 import { useCardContext } from "./context/card-context";
 
 /////////// Card Content ///////////
@@ -25,7 +24,7 @@ export const CardContent = React.forwardRef<HTMLDivElement, CardContentProps>(
     return (
       <div
         ref={ref}
-        className={cn(cardContentVariants({}), className)}
+        className={cardContentVariants({ className })}
         {...props}
       />
     );

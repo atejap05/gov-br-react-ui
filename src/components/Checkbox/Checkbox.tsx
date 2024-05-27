@@ -1,15 +1,14 @@
 import "../../index.css";
 import { forwardRef } from "react";
 import { cva } from "class-variance-authority";
-import { cn } from "../../utils";
 
 //////// Checkbox Component ////////
 
 const checboxVariants = cva("br-checkbox mt-0", {
   variants: {
-    valid: {
-      true: "valid",
-      false: "invalid",
+    status: {
+      valid: "valid",
+      invalid: "invalid",
     },
     disabled: {
       true: "disabled",
@@ -27,7 +26,7 @@ export type CheckboxProps = React.InputHTMLAttributes<HTMLInputElement> & {
   label?: string;
   id: string;
   name: string;
-  valid?: boolean;
+  status?: "valid" | "invalid";
   value?: string;
   disabled?: boolean;
   labeled?: boolean;
@@ -40,7 +39,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
       id,
       name,
       label,
-      valid,
+      status,
       value,
       disabled = false,
       labeled = true,
@@ -50,10 +49,7 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
     }: CheckboxProps,
     ref
   ) => {
-    const classes = cn(
-      checboxVariants({ valid, disabled, labeled }),
-      className
-    );
+    const classes = checboxVariants({ status, disabled, labeled, className });
 
     return (
       <div className={classes}>

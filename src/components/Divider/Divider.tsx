@@ -1,7 +1,6 @@
 import "../../index.css";
 import { cva } from "class-variance-authority";
 import React from "react";
-import { cn } from "../../utils";
 
 /////////// Divider Component ///////////
 
@@ -45,15 +44,8 @@ export const Divider = React.forwardRef<HTMLSpanElement, DividerProps>(
     }: DividerProps,
     ref
   ) => {
-    return (
-      <span
-        ref={ref}
-        className={cn(
-          dividerVariants({ orientation, size, dashed }),
-          className
-        )}
-        {...props}
-      />
-    );
+    const classes = dividerVariants({ orientation, size, dashed, className });
+
+    return <span ref={ref} className={classes} {...props} />;
   }
 );

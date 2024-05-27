@@ -1,11 +1,10 @@
 import "../../index.css";
 import { forwardRef } from "react";
 import { cva } from "class-variance-authority";
-import { cn } from "../../utils";
 import { BasicInput } from "./BasicInput";
 import { InputProps } from "./@types";
 
-const inputVariants = cva("br-input w-full", {
+const inputVariants = cva("br-input", {
   variants: {
     size: {
       sm: "small",
@@ -49,10 +48,13 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     }: InputProps,
     ref
   ) => {
-    const classes = cn(
-      inputVariants({ size, highlight, inline, status }),
-      className
-    );
+    const classes = inputVariants({
+      size,
+      highlight,
+      inline,
+      status,
+      className,
+    });
 
     // TODO: analisar a necessidade de remover essa validação e subsituir por um warning
     if (type !== "search" && onSearch) {
@@ -60,13 +62,9 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
         "The prop 'onSearch' is only available for type 'search'."
       );
     }
-
+    const isInputButton = type === "password" || type === "search";
     return (
-      <div
-        className={cn(classes, {
-          "input-button": type === "password" || type === "search",
-        })}
-      >
+      <div className={isInputButton ? `${classes} input-button` : classes}>
         <BasicInput
           ref={ref}
           type={type}
