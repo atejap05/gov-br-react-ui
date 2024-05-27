@@ -6,7 +6,7 @@ import {
   faExclamationTriangle,
 } from "@fortawesome/free-solid-svg-icons";
 import { cva } from "class-variance-authority";
-import "../../index.css";
+import "../../style.css";
 
 const alertVariants = cva("feedback", {
   variants: {

@@ -1,4 +1,4 @@
-import "../../index.css";
+import "../../style.css";
 import React, { useState } from "react";
 import { cva } from "class-variance-authority";
 import { CardProvider } from "./context/card-context";
