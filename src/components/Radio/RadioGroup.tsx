@@ -20,7 +20,7 @@ export type RadioGroupProps = {
   orientation?: "horizontal" | "vertical";
   feedback?: AlertProps;
   className?: string;
-  onChoose?: (value: string) => void;
+  onSelect?: (value: string) => void;
   options: RadioItemProps[];
 };
 
@@ -31,7 +31,7 @@ export const RadioGroup = ({
   orientation = "vertical",
   className,
   options,
-  onChoose,
+  onSelect,
 }: RadioGroupProps) => {
   const classes = radioGroupVariants({ orientation });
 
@@ -44,7 +44,7 @@ export const RadioGroup = ({
           <RadioItem
             {...option}
             onChange={e => {
-              onChoose && onChoose(e.target.value);
+              onSelect && onSelect(e.target.value);
             }}
           />
         </div>
