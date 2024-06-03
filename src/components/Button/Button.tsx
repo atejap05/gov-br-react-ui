@@ -1,6 +1,10 @@
 import "../../style.css";
 import React from "react";
 import { cva } from "class-variance-authority";
+import {
+  FontAwesomeIcon,
+  FontAwesomeIconProps,
+} from "@fortawesome/react-fontawesome";
 
 /////////// Button Component ///////////
 
@@ -72,6 +76,7 @@ export type ButtonProps = React.HtmlHTMLAttributes<HTMLButtonElement> & {
   loading?: boolean;
   dark?: boolean;
   block?: boolean;
+  icon?: FontAwesomeIconProps["icon"];
   type?: "button" | "submit" | "reset";
 };
 
@@ -87,6 +92,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       dark,
       block,
       children,
+      icon,
       type = "button",
       className,
       ...props
@@ -110,7 +116,14 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         })}
         {...props}
       >
-        {children}
+        {icon ? (
+          <div className="d-flex align-items-center justify-content-between">
+            <FontAwesomeIcon className="mr-2" icon={icon} />
+            {children}
+          </div>
+        ) : (
+          children
+        )}
       </button>
     );
   }
