@@ -8,8 +8,6 @@ import {
 
 /////////// Button Component ///////////
 
-// TODO: Verificar necessidade de implementacao da class .inverted and .dark-mode
-
 const buttonVariants = cva("br-button", {
   variants: {
     variant: {

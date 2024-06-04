@@ -26,11 +26,13 @@ export type CheckboxProps = React.InputHTMLAttributes<HTMLInputElement> & {
   label?: string;
   id: string;
   name: string;
+  indeterminate?: boolean;
   status?: "valid" | "invalid";
   value?: string;
   disabled?: boolean;
   labeled?: boolean;
   defaultChecked?: boolean;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
@@ -41,10 +43,12 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
       label,
       status,
       value,
+      indeterminate = false,
       disabled = false,
       labeled = true,
       defaultChecked = false,
       className,
+      onChange,
       ...props
     }: CheckboxProps,
     ref
@@ -61,6 +65,9 @@ export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
           value={value}
           defaultChecked={defaultChecked}
           data-child="check-01"
+          // @ts-expect-error - indeterminate is not a valid attribute for a checkbox
+          indeterminate={indeterminate ? "indeterminate" : null}
+          onChange={onChange}
           {...props}
         />
         <label htmlFor={id}>{label}</label>
