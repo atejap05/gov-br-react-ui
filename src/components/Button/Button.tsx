@@ -115,8 +115,8 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
         {...props}
       >
         {icon ? (
-          <div className="d-flex align-items-center justify-content-between">
-            <FontAwesomeIcon className="mr-2" icon={icon} />
+          <div className="d-flex align-items-center justify-content-between gap-2">
+            <FontAwesomeIcon icon={icon} />
             {children}
           </div>
         ) : (
