@@ -1,6 +1,10 @@
 import React from "react";
 import { cva } from "class-variance-authority";
 import "../../style.css";
+import {
+  FontAwesomeIcon,
+  FontAwesomeIconProps,
+} from "@fortawesome/react-fontawesome";
 ///// ItemButton Component /////
 
 // TODO: Refatorar para reaproveitar os codigos de Item
@@ -34,6 +38,7 @@ export type ItemLinkProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   selected?: boolean;
   active?: boolean;
   children?: React.ReactNode;
+  icon?: FontAwesomeIconProps["icon"];
   className?: string;
   id?: string;
   onClick?: () => void;
@@ -45,6 +50,7 @@ export const ItemButton = ({
   disabled,
   selected,
   active,
+  icon,
   children,
   onClick,
   className,
@@ -58,13 +64,14 @@ export const ItemButton = ({
       aria-disabled={disabled}
       onClick={onClick}
     >
-      <div className="row align-items-center">
+      <div className="row align-items-center justify-content-between">
         {img && (
           <div className="col-auto">
             <img className={img.className} src={img.src} alt={img.alt} />
           </div>
         )}
-        <div className="col">{children}</div>
+        <div className="row align-items-center">{children}</div>
+        {icon && <FontAwesomeIcon icon={icon} />}
       </div>
     </button>
   );
