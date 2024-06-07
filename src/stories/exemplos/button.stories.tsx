@@ -1,6 +1,7 @@
 import { Meta, StoryObj } from "@storybook/react";
 
 import { Button } from "../../components/Button";
+import { faCoffee } from "@fortawesome/free-solid-svg-icons";
 
 const meta: Meta<typeof Button> = {
   title: "Exemplos/Button",
@@ -60,29 +61,17 @@ export const Circular: Story = {
         <div className="w-1/2">
           <h3>Light</h3>
           <div className="flex gap-8 justify-center items-center  py-8 px-6">
-            <Button variant="primary" circle>
-              🎪
-            </Button>
-            <Button variant="secondary" circle>
-              👙
-            </Button>
-            <Button variant="tertiary" circle>
-              🎯
-            </Button>
+            <Button icon={faCoffee} variant="primary" circle />
+            <Button icon={faCoffee} variant="secondary" circle />
+            <Button icon={faCoffee} variant="tertiary" circle />
           </div>
         </div>
         <div className="w-1/2">
           <h3>Dark</h3>
           <div className="flex gap-8 justify-center items-center bg-slate-800 py-8 px-6">
-            <Button variant="primary" dark circle>
-              🎪
-            </Button>
-            <Button variant="secondary" dark circle>
-              👙
-            </Button>
-            <Button variant="tertiary" dark circle>
-              🎯
-            </Button>
+            <Button icon={faCoffee} variant="primary" dark circle />
+            <Button icon={faCoffee} variant="secondary" dark circle />
+            <Button icon={faCoffee} variant="tertiary" dark circle />
           </div>
         </div>
       </div>
@@ -97,8 +86,10 @@ export const Enfases: Story = {
       <div className="flex flow-row gap-4 justify-between items-center w-full">
         <div className="w-1/2">
           <h3>Light</h3>
-          <div className="flex gap-3 justify-start items-center  py-8 px-6">
-            <Button variant="primary">Primary</Button>
+          <div className="flex gap-3 justify-start items-center py-8 px-6">
+            <Button icon={faCoffee} variant="primary">
+              Primary
+            </Button>
             <Button variant="secondary">Secondary</Button>
             <Button variant="tertiary">Tertiary</Button>
           </div>
