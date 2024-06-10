@@ -1,13 +1,10 @@
 // import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import "../../style.css";
-import React, { forwardRef, useState } from "react";
+import React, { forwardRef, useState, useEffect } from "react";
 import { Button } from "../Button";
 import { SelectInput } from "./SelectInput";
 import { faAngleDown, faAngleUp } from "@fortawesome/free-solid-svg-icons";
 import { SimpleSelectContent } from "./SimpleSelectContent";
-
-// TODO: Options type! Precisa mesmo de todos esses campos?
-// TODO: defaultSelect passar como propriedade do componente e nao do options
 
 export type SelectProps = React.HtmlHTMLAttributes<HTMLInputElement> & {
   id: string;
@@ -15,27 +12,39 @@ export type SelectProps = React.HtmlHTMLAttributes<HTMLInputElement> & {
   placeholder?: string;
   value?: string;
   onSelect?: (value: string) => void;
+  defaultSelected?: string;
   options: {
-    value: string;
     label: string;
     id: string;
-    name: string;
-    defaultSelected?: boolean;
   }[];
 };
 
 export const Select = forwardRef<HTMLInputElement, SelectProps>(
-  ({ id, label, placeholder, options, value, onSelect, ...props }, ref) => {
+  (
+    { id, label, placeholder, options, defaultSelected, onSelect, ...props },
+    ref
+  ) => {
     const [isOpen, setIsOpen] = useState(false);
     const [selectedItem, setSelectedItem] = useState("");
 
+    useEffect(() => {
+      if (defaultSelected) {
+        const option = options.find(
+          option =>
+            option.id === defaultSelected || option.label === defaultSelected
+        );
+        if (option) {
+          setSelectedItem(option.label);
+        }
+      }
+    }, [defaultSelected, options]);
     return (
       <div className="br-select">
         <SelectInput
           ref={ref}
           id={id}
           label={label}
-          defaultValue={selectedItem || value}
+          defaultValue={selectedItem}
           placeholder={placeholder}
           onChange={e => setSelectedItem(e.target.value)}
           {...props}
