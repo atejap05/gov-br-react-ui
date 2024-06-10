@@ -36,20 +36,22 @@ export const RadioGroup = ({
   const classes = radioGroupVariants({ orientation });
 
   return (
-    <div className={"p-2" + className}>
-      {title && <p className="label mb-0">{title}</p>}
-      {subtitle && <p className="help">{subtitle}</p>}
-      {options.map(option => (
-        <div key={option.id} className={classes}>
-          <RadioItem
-            {...option}
-            onChange={e => {
-              onSelect && onSelect(e.target.value);
-            }}
-          />
-        </div>
-      ))}
+    <>
+      <div className={"p-2" + className}>
+        {title && <p className="label mb-0">{title}</p>}
+        {subtitle && <p className="help">{subtitle}</p>}
+        {options.map(option => (
+          <div key={option.id} className={classes}>
+            <RadioItem
+              {...option}
+              onChange={e => {
+                onSelect && onSelect(e.target.value);
+              }}
+            />
+          </div>
+        ))}
+      </div>
       {feedback && <Alert status={feedback.status} text={feedback.text} />}
-    </div>
+    </>
   );
 };
