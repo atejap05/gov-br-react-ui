@@ -4,14 +4,15 @@ import React, { forwardRef, useState, useEffect } from "react";
 import { Button } from "../Button";
 import { SelectInput } from "./SelectInput";
 import { faAngleDown, faAngleUp } from "@fortawesome/free-solid-svg-icons";
-import { SimpleSelectContent } from "./SimpleSelectContent";
+import { SelectContent } from "./SelectContent";
 
 export type SelectProps = React.HtmlHTMLAttributes<HTMLInputElement> & {
   id: string;
   label?: string;
   placeholder?: string;
   value?: string;
-  onSelect?: (value: string) => void;
+  allowMultiSelect?: boolean;
+  onSelect?: (listItems: TSelectedItems | string) => void;
   defaultSelected?: string;
   options: {
     label: string;
@@ -19,9 +20,20 @@ export type SelectProps = React.HtmlHTMLAttributes<HTMLInputElement> & {
   }[];
 };
 
+type TSelectedItems = string[];
+
 export const Select = forwardRef<HTMLInputElement, SelectProps>(
   (
-    { id, label, placeholder, options, defaultSelected, onSelect, ...props },
+    {
+      id,
+      label,
+      placeholder,
+      options,
+      defaultSelected,
+      onSelect,
+      allowMultiSelect,
+      ...props
+    },
     ref
   ) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -51,7 +63,6 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
         >
           <Button
             aria-label="Exibir lista"
-            tabIndex={-1}
             data-trigger="data-trigger"
             size="sm"
             variant={"tertiary"}
@@ -61,10 +72,11 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
           />
         </SelectInput>
         {isOpen && (
-          <SimpleSelectContent
-            onSelectChange={(value: string) => {
-              setSelectedItem(value);
-              onSelect && onSelect(value);
+          <SelectContent
+            allowMultiSelect={allowMultiSelect}
+            onSelectChange={(listItem: TSelectedItems) => {
+              setSelectedItem(listItem.join(", "));
+              onSelect && onSelect(allowMultiSelect ? listItem : listItem[0]);
             }}
             onClickOutside={(value: boolean) => {
               setIsOpen(value);
