@@ -5,7 +5,6 @@ import "../../style.css";
 
 /////////// Avatar Component ///////////
 
-// TODO: Add status prop to Avatar component
 
 const avatarVariants = cva("br-avatar", {
   variants: {
@@ -14,16 +13,10 @@ const avatarVariants = cva("br-avatar", {
       md: "medium",
       lg: "large",
     },
-    // status: {
-    //   online: " online",
-    //   offline: "offline",
-    //   busy: "busy",
-    //   away: "away",
-    // },
+
   },
   defaultVariants: {
     size: "md",
-    // status: "online",
   },
 });
 

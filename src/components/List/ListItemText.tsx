@@ -5,8 +5,6 @@ export type ListItemTextProps = React.HTMLAttributes<HTMLDivElement> & {
   secondary?: string;
 };
 
-// TODO: Mover checkbox para componente separado. ListItemCheckbox
-
 export const ListItemText = ({ primary, secondary }: ListItemTextProps) => {
   return (
     <>

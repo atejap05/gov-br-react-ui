@@ -32,7 +32,7 @@ type Img = {
   className?: string;
 };
 
-export type ItemLinkProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
+export type ItemButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   img?: Img;
   disabled?: boolean;
   selected?: boolean;
@@ -54,7 +54,7 @@ export const ItemButton = ({
   children,
   onClick,
   className,
-}: ItemLinkProps) => {
+}: ItemButtonProps) => {
   const classes = itemButtonVariants({ disabled, selected, active, className });
 
   return (

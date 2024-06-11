@@ -1,6 +1,6 @@
 import "../../style.css";
 
-type ListTitleProps = {
+export type ListTitleProps = {
   title: string;
   className?: string;
 };

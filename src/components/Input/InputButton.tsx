@@ -8,7 +8,7 @@ import {
 } from "@fortawesome/react-fontawesome";
 import { faEye, faEyeSlash, faSearch } from "@fortawesome/free-solid-svg-icons";
 
-type InputButtonProps = {
+export type InputButtonProps = {
   inputType: InputTypes;
   onToggleIcon?: (value: InputTypes) => void;
   onClickSearch?: () => void;

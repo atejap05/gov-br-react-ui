@@ -3,8 +3,6 @@ import { cva } from "class-variance-authority";
 import "../../style.css";
 ///// ItemLink Component /////
 
-// TODO: Refatorar para reaproveitar os codigos de Item
-
 const itemLinkVariants = cva("br-item", {
   variants: {
     disabled: {

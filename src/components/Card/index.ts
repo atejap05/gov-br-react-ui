@@ -1,4 +1,4 @@
-export { Card } from "./Card";
-export { CardContent } from "./CardContent";
-export { CardHeader } from "./CardHeader";
-export { CardFooter } from "./CardFooter";
+export { Card, type CardProps } from "./Card";
+export { CardContent, type CardContentProps } from "./CardContent";
+export { CardHeader, type CardHeaderProps } from "./CardHeader";
+export { CardFooter, type CardFooterProps } from "./CardFooter";

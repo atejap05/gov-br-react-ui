@@ -1,3 +1,3 @@
-export { Item } from "./Item";
-export { ItemLink } from "./ItemLink";
-export { ItemButton } from "./ItemButton";
+export { Item, type ItemProps } from "./Item";
+export { ItemLink, type ItemLinkProps } from "./ItemLink";
+export { ItemButton, type ItemButtonProps } from "./ItemButton";
