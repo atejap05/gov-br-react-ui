@@ -1,6 +1,6 @@
 // import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import "../../style.css";
-import React, { forwardRef, useState, useEffect } from "react";
+import React, { forwardRef, useState } from "react";
 import { Button } from "../Button";
 import { SelectInput } from "./SelectInput";
 import { faAngleDown, faAngleUp } from "@fortawesome/free-solid-svg-icons";
@@ -13,7 +13,7 @@ export type SelectProps = React.HtmlHTMLAttributes<HTMLInputElement> & {
   value?: string;
   allowMultiSelect?: boolean;
   onSelect?: (listItems: TSelectedItems | string) => void;
-  defaultSelected?: string;
+
   options: {
     label: string;
     id: string;
@@ -24,32 +24,12 @@ type TSelectedItems = string[];
 
 export const Select = forwardRef<HTMLInputElement, SelectProps>(
   (
-    {
-      id,
-      label,
-      placeholder,
-      options,
-      defaultSelected,
-      onSelect,
-      allowMultiSelect,
-      ...props
-    },
+    { id, label, placeholder, options, onSelect, allowMultiSelect, ...props },
     ref
   ) => {
     const [isOpen, setIsOpen] = useState(false);
     const [selectedItem, setSelectedItem] = useState("");
 
-    useEffect(() => {
-      if (defaultSelected) {
-        const option = options.find(
-          option =>
-            option.id === defaultSelected || option.label === defaultSelected
-        );
-        if (option) {
-          setSelectedItem(option.label);
-        }
-      }
-    }, [defaultSelected, options]);
     return (
       <div className="br-select">
         <SelectInput
