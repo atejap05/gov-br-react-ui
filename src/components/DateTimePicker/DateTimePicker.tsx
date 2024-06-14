@@ -8,6 +8,8 @@ import { getArrows, setAttributes } from "./datetimepicker.conf";
 import { DatePickerInput } from "./DatePickerInput";
 import { useDateFormat } from "./useDateFormat";
 
+// https://flatpickr.js.org/options/
+
 export type DateTimePickerProps = {
   id: string;
   label?: string;
