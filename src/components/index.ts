@@ -13,3 +13,4 @@ export * from "./Switch";
 export * from "./Loading";
 export * from "./Select";
 export * from "./DateTimePicker";
+export * from "./Pagination";
