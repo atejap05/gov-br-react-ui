@@ -1,0 +1,7 @@
+// add media to hide persona class on mobile
+
+@media (max-width: 768px) {
+  .persona {
+    display: none;
+  }
+}
