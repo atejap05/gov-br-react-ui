@@ -38,7 +38,7 @@ export const HeaderPadrao: Story = {
       }}
       persona={{
         src: "https://randomuser.me/api/portraits/men/75.jpg",
-        name: "Joel Alves Pereira",
+        name: "Fulano de Tal da Silva",
         description: "Auditor-Fiscal da RFB",
       }}
     />
