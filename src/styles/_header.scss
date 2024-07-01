@@ -1,0 +1,19 @@
+@import "../../node_modules/@govbr-ds/core/src/components/header/header";
+
+.dropdown-list {
+  display: block;
+  position: absolute;
+  box-shadow: var(--surface-shadow-sm);
+  background: var(--background);
+  left: -4em;
+}
+
+.dropdown-button {
+  display: block;
+}
+
+@media (min-width: 1279px) {
+  .dropdown-button {
+    display: none;
+  }
+}
