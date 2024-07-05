@@ -14,3 +14,5 @@ export * from "./Loading";
 export * from "./Select";
 export * from "./DateTimePicker";
 export * from "./Pagination";
+export * from "./Persona";
+export * from "./Header";
