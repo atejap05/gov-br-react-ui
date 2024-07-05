@@ -1,3 +1,4 @@
+import React from "react";
 import { Persona } from "../Persona";
 import { cva } from "class-variance-authority";
 import { HeaderLinks } from "./HeaderLinks";
@@ -27,7 +28,7 @@ export type HeaderProps = {
     href?: string;
   };
   menu?: {
-    onClick: () => void;
+    onClick: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   };
   persona?: {
     src: string;
