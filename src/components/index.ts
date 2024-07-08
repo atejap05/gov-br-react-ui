@@ -16,3 +16,4 @@ export * from "./DateTimePicker";
 export * from "./Pagination";
 export * from "./Persona";
 export * from "./Header";
+export * from "./Tag";
