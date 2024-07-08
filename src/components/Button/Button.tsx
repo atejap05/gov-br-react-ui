@@ -46,6 +46,10 @@ const buttonVariants = cva("br-button", {
       true: "block",
       false: "",
     },
+    inverted: {
+      true: "inverted",
+      false: "",
+    },
   },
   defaultVariants: {
     variant: "primary",
@@ -55,6 +59,7 @@ const buttonVariants = cva("br-button", {
     loading: false,
     dark: false,
     block: false,
+    inverted: false,
   },
 });
 
@@ -74,6 +79,7 @@ export type ButtonProps = React.HtmlHTMLAttributes<HTMLButtonElement> & {
   loading?: boolean;
   dark?: boolean;
   block?: boolean;
+  inverted?: boolean;
   icon?: FontAwesomeIconProps["icon"];
   type?: "button" | "submit" | "reset";
 };
@@ -89,6 +95,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
       loading,
       dark,
       block,
+      inverted,
       children,
       icon,
       type = "button",
@@ -109,6 +116,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
           active,
           loading,
           dark,
+          inverted,
           block,
           className,
         })}
