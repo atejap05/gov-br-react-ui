@@ -1,8 +1,8 @@
-import "../../style.css";
 import { useState, useEffect } from "react";
 import { Button } from "../Button";
 import { Select } from "../Select";
 import { faAngleLeft, faAngleRight } from "@fortawesome/free-solid-svg-icons";
+import { nanoid } from "nanoid";
 
 export type DataTablePaginationProps = {
   pageSizeOptions: number[];
@@ -19,8 +19,12 @@ const DataTablePagination = ({
 }: DataTablePaginationProps) => {
   const [pageSize, setPageSize] = useState(pageSizeOptions[0]);
   const [currentPage, setCurrentPage] = useState(1);
-
   const numOfPages = Math.ceil(totalRows / pageSize);
+  const firstRowOnCurrentPage = (currentPage - 1) * pageSize + 1;
+  const lastRowOnCurrentPage = Math.min(currentPage * pageSize, totalRows);
+
+  const inputExibirID = nanoid();
+  const inputPaginaID = nanoid();
 
   useEffect(() => {
     onPageSizeChange && onPageSizeChange(pageSize);
@@ -37,7 +41,7 @@ const DataTablePagination = ({
       >
         <div className="pagination-per-page">
           <Select
-            id="per-page-selection-random-19046"
+            id={inputExibirID}
             label="Exibir"
             options={pageSizeOptions.map(pageSizeOption => ({
               label: String(pageSizeOption),
@@ -51,13 +55,13 @@ const DataTablePagination = ({
         </div>
         <span className="br-divider d-none d-sm-block mx-3"></span>
         <div className="pagination-information d-none d-sm-flex">
-          <span className="current">1</span>&ndash;
-          <span className="per-page">{pageSize}</span>&nbsp;de&nbsp;
+          <span className="current">{firstRowOnCurrentPage}</span>&ndash;
+          <span className="per-page">{lastRowOnCurrentPage}</span>&nbsp;de&nbsp;
           <span className="total">{totalRows}</span>&nbsp;itens
         </div>
         <div className="pagination-go-to-page d-none d-sm-flex ml-auto">
           <Select
-            id="go-to-selection-random-16791"
+            id={inputPaginaID}
             label="Página"
             value={String(currentPage)}
             options={

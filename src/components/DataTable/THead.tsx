@@ -1,21 +1,27 @@
+import { nanoid } from "nanoid";
+
 type THeadProps = {
   columns: Array<{ field: string; title: string }>;
 };
 
 const THead = ({ columns }: THeadProps) => {
+  const inputID = nanoid();
+
   return (
     <thead>
       <tr>
         <th className="column-checkbox" scope="col">
           <div className="br-checkbox hidden-label">
             <input
-              id="check-all-2684"
-              name="check-all-2684"
+              id={`check-all-${inputID}`}
+              name={`check-all-${inputID}`}
               type="checkbox"
               aria-label="Selecionar tudo"
-              data-parent="check-01-2684"
+              data-parent={`check-01-${2684}`}
             />
-            <label htmlFor="check-all-2684">Selecionar todas as linhas</label>
+            <label htmlFor={`check-all-${inputID}`}>
+              Selecionar todas as linhas
+            </label>
           </div>
         </th>
         {columns.map(column => (

@@ -6,6 +6,7 @@ import {
   faTimes,
 } from "@fortawesome/free-solid-svg-icons";
 import { Button } from "../Button";
+import { nanoid } from "nanoid";
 import { DropdownDensity } from "./DropdownDensity";
 export type DataTableHeaderProps = {
   title?: string;
@@ -30,8 +31,10 @@ const DataTableHeader = ({
     elementRef: dropdownRef,
   });
   useEffect(() => {
-    onDensityChange && onDensityChange(density); // [2]
+    onDensityChange && onDensityChange(density);
   }, [density, onDensityChange]);
+
+  const inputSearchID = nanoid();
 
   return (
     <div className="table-header">
@@ -68,7 +71,6 @@ const DataTableHeader = ({
             variant="tertiary"
             title="Abrir busca"
             aria-label="Abrir busca"
-            aria-controls="table-searchbox-2684"
             data-toggle="search"
             icon={showSearch ? faTimes : faSearch}
             onClick={() => {
@@ -79,10 +81,10 @@ const DataTableHeader = ({
       </div>
       <div className={showSearch ? "search-bar show" : "search-bar"}>
         <div className="br-input">
-          <label htmlFor="table-searchbox-2684">Buscar na tabela</label>
+          <label htmlFor={inputSearchID}>Buscar na tabela</label>
           <input
             ref={inputRef}
-            id="table-searchbox-2684"
+            id={inputSearchID}
             type="search"
             placeholder="Buscar na tabela"
             aria-labelledby="button-input-search"
@@ -121,7 +123,6 @@ const DataTableHeader = ({
           <button
             className="br-button circle inverted"
             type="button"
-            id="button-dropdown-selection"
             data-toggle="dropdown"
             data-target="target02-2684"
             aria-controls="target02-2684"
@@ -135,7 +136,7 @@ const DataTableHeader = ({
             id="target02-2684"
             role="menu"
             aria-labelledby="button-dropdown-selection"
-            hidden="hidden"
+            // hidden="hidden"
           >
             <button
               className="br-item"

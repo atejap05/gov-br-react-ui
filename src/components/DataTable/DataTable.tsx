@@ -1,3 +1,4 @@
+import "../../style.css";
 import { useState } from "react";
 import { DataTableHeader } from "./DataTableHeader";
 import { DataTablePagination } from "./DataTablePagination";
