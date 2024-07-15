@@ -34,7 +34,7 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
           ref={ref}
           id={id}
           label={label}
-          defaultValue={selectedItem}
+          value={selectedItem}
           placeholder={placeholder}
           onChange={e => setSelectedItem(e.target.value)}
           {...props}

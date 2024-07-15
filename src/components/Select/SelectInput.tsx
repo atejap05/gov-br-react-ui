@@ -22,7 +22,7 @@ export const SelectInput = forwardRef<HTMLInputElement, SelectInputProps>(
             ref={ref}
             id={id}
             type="text"
-            defaultValue={text}
+            value={text}
             placeholder={placeholder}
             onChange={e => setText(e.target.value)}
             {...props}
