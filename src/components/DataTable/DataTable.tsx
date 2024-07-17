@@ -1,8 +1,8 @@
 import "../../style.css";
 import { useState } from "react";
-import { DataTableHeader } from "./DataTableHeader";
-import { DataTablePagination } from "./DataTablePagination";
-import { TableBody } from "./TableBody";
+import { TableHeader } from "./TableHeader/TableHeader";
+import { TablePagination } from "./TableFooter/TablePagination";
+import { TableBody } from "./TableBody/TableBody";
 
 export type DataTableProps = {
   className?: string;
@@ -20,6 +20,7 @@ const DataTable = ({
 }: DataTableProps) => {
   const [searchedValue, setSearchedValue] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
+
   const [density, setDensity] = useState<"small" | "medium" | "large">(
     "medium"
   );
@@ -44,17 +45,17 @@ const DataTable = ({
       data-collapse="data-collapse"
       data-random="data-random"
     >
-      <DataTableHeader
-        title={title}
+      <TableHeader
+        tableTitle={title}
         onDensityChange={value => setDensity(value)}
         onSearch={searchedValue => {
           setSearchedValue(searchedValue);
         }}
       />
 
-      <TableBody title={title} columns={columns} rows={searchedRows} />
+      <TableBody tableTitle={title} columns={columns} rows={searchedRows} />
       {pageSizeOptions && (
-        <DataTablePagination
+        <TablePagination
           pageSizeOptions={pageSizeOptions}
           totalRows={rows.length}
           onPageSizeChange={pageSize => {
