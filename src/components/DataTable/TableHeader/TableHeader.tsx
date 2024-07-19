@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 import { useClickOutside } from "@/hooks/useClickOutside";
 import {
   faEllipsisV,
@@ -9,36 +9,26 @@ import { Button } from "../../Button";
 import { nanoid } from "nanoid";
 import { DropdownDensity } from "./DropdownDensity";
 import { TableSelectedBar } from "./TableSelectedBar";
+import { useDataTableContext } from "../context";
 
 export type TableHeaderProps = {
   tableTitle?: string;
-  onDensityChange?: (density: "small" | "medium" | "large") => void;
-  onSearch: (search: string) => void;
 };
 
 // Displaying the table header --> title, search bar, and density options
 
-const TableHeader = ({
-  onSearch,
-  onDensityChange,
-
-  tableTitle,
-}: TableHeaderProps) => {
-  const [showSearch, setShowSearch] = useState(false); // [1
-  const [density, setDensity] = useState<"small" | "medium" | "large">(
-    "medium"
-  );
+const TableHeader = ({ tableTitle }: TableHeaderProps) => {
+  const [showSearch, setShowSearch] = useState(false);
   const [dropdownDensityOpen, setDropdownDensityOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+
+  const { setSearchedValue } = useDataTableContext();
 
   useClickOutside({
     onClickOutside: () => setDropdownDensityOpen(false),
     elementRef: dropdownRef,
   });
-  useEffect(() => {
-    onDensityChange && onDensityChange(density);
-  }, [density, onDensityChange]);
 
   const inputSearchID = nanoid();
 
@@ -68,7 +58,6 @@ const TableHeader = ({
           <DropdownDensity
             dropdownRef={dropdownRef}
             dropdownDensityOpen={dropdownDensityOpen}
-            setDensity={setDensity}
           />
         </div>
         <div className="search-trigger">
@@ -96,7 +85,7 @@ const TableHeader = ({
             aria-labelledby="button-input-search"
             aria-label="Buscar na tabela"
             onChange={e => {
-              onSearch(e.target.value);
+              setSearchedValue(e.target.value);
             }}
           />
           <Button
@@ -106,7 +95,7 @@ const TableHeader = ({
             aria-label="Buscar"
             icon={faSearch}
             onClick={() => {
-              onSearch(inputRef.current?.value || "");
+              setSearchedValue(inputRef.current?.value || "");
             }}
           />
         </div>
