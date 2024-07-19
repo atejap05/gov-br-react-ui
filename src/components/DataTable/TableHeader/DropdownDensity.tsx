@@ -1,17 +1,17 @@
+import { useDataTableContext } from "../context";
+
 export type DropdownDensityProps = {
   className?: string;
   dropdownRef: React.RefObject<HTMLDivElement>;
   dropdownDensityOpen: boolean;
-  setDensity: React.Dispatch<
-    React.SetStateAction<"small" | "medium" | "large">
-  >;
 };
 
 const DropdownDensity = ({
   dropdownRef,
   dropdownDensityOpen,
-  setDensity,
 }: DropdownDensityProps) => {
+  const { setDensity } = useDataTableContext();
+
   return (
     <div
       ref={dropdownRef}
