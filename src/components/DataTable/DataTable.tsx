@@ -3,13 +3,17 @@ import { useState } from "react";
 import { TableHeader } from "./TableHeader/TableHeader";
 import { TablePagination } from "./TableFooter/TablePagination";
 import { TableBody } from "./TableBody/TableBody";
+import { DataTableContextProvider } from "./context";
+import { useDataTable } from "./useDataTable";
+import type { TAction, TRows, TColumns } from "./@types";
 
 export type DataTableProps = {
   className?: string;
   title?: string;
   pageSizeOptions?: number[];
-  columns: Array<{ field: string; title: string }>;
-  rows: Array<{ [key: string]: string | number }>;
+  columns: TColumns;
+  rows: TRows;
+  actions?: TAction[];
 };
 
 const DataTable = ({
@@ -17,14 +21,21 @@ const DataTable = ({
   pageSizeOptions,
   columns,
   rows,
+  actions,
 }: DataTableProps) => {
-  const [searchedValue, setSearchedValue] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
+  const [tablePageSize, setTablePageSize] = useState(pageSizeOptions?.[0] || 5);
 
-  const [density, setDensity] = useState<"small" | "medium" | "large">(
-    "medium"
-  );
-  const [tablePageSize, setTablePageSize] = useState(5);
+  const {
+    showSelecedBar,
+    setShowSelecedBar,
+    searchedValue,
+    setSearchedValue,
+    density,
+    setDensity,
+    selectedRows,
+    setSelectedRows,
+  } = useDataTable();
 
   const rowsToShow = rows.slice(
     (currentPage - 1) * tablePageSize,
@@ -38,35 +49,43 @@ const DataTable = ({
   });
 
   return (
-    <div
-      className={`br-table ${density}`}
-      data-search="data-search"
-      data-selection="data-selection"
-      data-collapse="data-collapse"
-      data-random="data-random"
+    <DataTableContextProvider
+      value={{
+        density: density,
+        setDensity: setDensity,
+        searchedValue: searchedValue,
+        setSearchedValue: setSearchedValue,
+        showSelecedBar: showSelecedBar,
+        setShowSelecedBar: setShowSelecedBar,
+        selectedRows: selectedRows,
+        setSelectedRows: setSelectedRows,
+        actions: actions,
+      }}
     >
-      <TableHeader
-        tableTitle={title}
-        onDensityChange={value => setDensity(value)}
-        onSearch={searchedValue => {
-          setSearchedValue(searchedValue);
-        }}
-      />
+      <div
+        className={`br-table ${density}`}
+        data-search="data-search"
+        data-selection="data-selection"
+        data-collapse="data-collapse"
+        data-random="data-random"
+      >
+        <TableHeader tableTitle={title} />
+        <TableBody tableTitle={title} columns={columns} rows={searchedRows} />
 
-      <TableBody tableTitle={title} columns={columns} rows={searchedRows} />
-      {pageSizeOptions && (
-        <TablePagination
-          pageSizeOptions={pageSizeOptions}
-          totalRows={rows.length}
-          onPageSizeChange={pageSize => {
-            if (pageSize) setTablePageSize(pageSize);
-          }}
-          onCurrentPageChange={currentPage => {
-            if (currentPage) setCurrentPage(currentPage);
-          }}
-        />
-      )}
-    </div>
+        {pageSizeOptions && (
+          <TablePagination
+            pageSizeOptions={pageSizeOptions}
+            totalRows={rows.length}
+            onPageSizeChange={pageSize => {
+              if (pageSize) setTablePageSize(pageSize);
+            }}
+            onCurrentPageChange={currentPage => {
+              if (currentPage) setCurrentPage(currentPage);
+            }}
+          />
+        )}
+      </div>
+    </DataTableContextProvider>
   );
 };
 
