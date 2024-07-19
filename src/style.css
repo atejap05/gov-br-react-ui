@@ -28198,7 +28198,6 @@ button.br-item:not(:disabled):active {
 }
 
 .dropdown-list {
-  display: block;
   position: absolute;
   box-shadow: var(--surface-shadow-sm);
   background: var(--background);
