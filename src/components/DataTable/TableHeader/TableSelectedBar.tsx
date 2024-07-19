@@ -1,43 +1,54 @@
-export type TableSelectedBarProps = {};
+import { useState } from "react";
+import { useDataTableContext } from "../context";
+import { Button } from "@/components/Button";
+import { faEllipsisV } from "@fortawesome/free-solid-svg-icons";
 
-const TableSelectedBar = ({}: TableSelectedBarProps) => {
+// Displaying the selected bar --> count of selected items and actions
+
+const TableSelectedBar = () => {
+  const { selectedRows, actions } = useDataTableContext();
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const showBar = selectedRows.length > 0;
+
+  const classes = dropdownOpen
+    ? "actions-trigger text-nowrap dropdown"
+    : "actions-trigger text-nowrap";
+
   return (
-    <div className={false ? "selected-bar show" : "selected-bar"}>
+    <div className={showBar ? "selected-bar show" : "selected-bar"}>
       <div className="info">
-        <span className="count">0</span>
+        <span className="count">{selectedRows.length}</span>
         <span className="text">item selecionado</span>
       </div>
-      <div className="actions-trigger text-nowrap">
-        <button
-          className="br-button circle inverted"
-          type="button"
-          data-toggle="dropdown"
-          data-target="target02-2684"
-          aria-controls="target02-2684"
+      <div className={classes}>
+        <Button
+          circle
+          variant="tertiary"
+          inverted
+          title="Ver mais opções de ação"
           aria-label="Ver mais opções de ação"
           aria-haspopup="true"
-        >
-          <i className="fas fa-ellipsis-v" aria-hidden="true"></i>
-        </button>
+          onClick={() => setDropdownOpen(!dropdownOpen)}
+          icon={faEllipsisV}
+        />
+
         <div
-          className="br-list"
-          id="target02-2684"
+          className="br-list dropdown-list"
           role="menu"
           aria-labelledby="button-dropdown-selection"
-          // hidden="hidden"
+          hidden={!dropdownOpen}
         >
-          <button
-            className="br-item"
-            type="button"
-            data-toggle=""
-            role="menuitem"
-          >
-            Ação 1
-          </button>
-          <span className="br-divider"></span>
-          <button className="br-item" type="button" role="menuitem">
-            Ação 2
-          </button>
+          {actions?.map(action => (
+            <button
+              key={action.key}
+              className="br-item"
+              type="button"
+              role="menuitem"
+              onClick={() => action.onClick(selectedRows)}
+            >
+              {action.label}
+            </button>
+          ))}
         </div>
       </div>
     </div>
