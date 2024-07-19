@@ -1,11 +1,22 @@
+import type { TRows, TRow, TColumns } from "../@types";
+import { useDataTableContext } from "../context";
+
 export type TableContentProps = {
-  columns: Array<{ field: string; title: string }>;
-  rows: Array<{ [key: string]: string | number }>;
+  columns: TColumns;
+  rows: TRows;
+  selectedRows: TRows;
+  onRowSelect: (row: TRow) => void;
 };
 
 // Displaying the table rows
 
-const TableContent = ({ rows, columns }: TableContentProps) => {
+const TableContent = ({
+  rows,
+  columns,
+  selectedRows,
+  onRowSelect,
+}: TableContentProps) => {
+  const { setShowSelecedBar } = useDataTableContext();
   return (
     <tbody>
       {rows.map((row, idx) => (
@@ -18,6 +29,12 @@ const TableContent = ({ rows, columns }: TableContentProps) => {
                 type="checkbox"
                 aria-label={`Selecionar linha ${idx + 1}`}
                 data-child={`check-${idx + 1}`}
+                checked={selectedRows.includes(row)}
+                onChange={e => {
+                  onRowSelect(row);
+                  setShowSelecedBar(e.target.checked);
+                  console.log(row);
+                }}
               />
               <label htmlFor={`check-line-${idx + 1}`}>
                 Selecionar linha {row.id}
