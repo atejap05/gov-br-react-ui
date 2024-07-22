@@ -1,3 +1,4 @@
+import "../../style.css";
 import React, { forwardRef, useState } from "react";
 import {
   FontAwesomeIcon,

@@ -1,3 +1,4 @@
+import "../../style.css";
 import React, { forwardRef } from "react";
 import { cva } from "class-variance-authority";
 

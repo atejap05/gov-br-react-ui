@@ -1,3 +1,4 @@
+import "../../style.css";
 import React from "react";
 import { Persona } from "../Persona";
 import { cva } from "class-variance-authority";

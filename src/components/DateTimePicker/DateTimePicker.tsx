@@ -1,9 +1,9 @@
+import "../../style.css";
 import { useEffect } from "react";
 import { Portuguese } from "flatpickr/dist/l10n/pt.js";
 import flatpickr from "flatpickr";
 import Flatpickr from "react-flatpickr";
 import "flatpickr/dist/flatpickr.css";
-import "../../style.css";
 import { getArrows, setAttributes } from "./datetimepicker.conf";
 import { DatePickerInput } from "./DatePickerInput";
 import { useDateFormat } from "./useDateFormat";

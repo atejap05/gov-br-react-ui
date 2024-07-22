@@ -1,3 +1,4 @@
+import "../../style.css";
 import { cva } from "class-variance-authority";
 import { Avatar } from "../Avatar";
 
