@@ -5,7 +5,18 @@ import { TablePagination } from "./TableFooter/TablePagination";
 import { TableBody } from "./TableBody/TableBody";
 import { DataTableContextProvider } from "./context";
 import { useDataTable } from "./useDataTable";
-import type { TAction, TRows, TColumns } from "./@types";
+import { cva } from "class-variance-authority";
+import type { TAction, TRows, TColumns, TDensity } from "./@types";
+
+const DataTableVariants = cva("br-table", {
+  variants: {
+    density: {
+      small: "small",
+      medium: "medium",
+      large: "large",
+    },
+  },
+});
 
 export type DataTableProps = {
   className?: string;
@@ -14,9 +25,11 @@ export type DataTableProps = {
   columns: TColumns;
   rows: TRows;
   actions?: TAction[];
+  density?: TDensity;
 };
 
 const DataTable = ({
+  className,
   title,
   pageSizeOptions,
   columns,
@@ -48,6 +61,8 @@ const DataTable = ({
     });
   });
 
+  const classes = DataTableVariants({ density, className });
+
   return (
     <DataTableContextProvider
       value={{
@@ -63,7 +78,7 @@ const DataTable = ({
       }}
     >
       <div
-        className={`br-table ${density}`}
+        className={classes}
         data-search="data-search"
         data-selection="data-selection"
         data-collapse="data-collapse"
