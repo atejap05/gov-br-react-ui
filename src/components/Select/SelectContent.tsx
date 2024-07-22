@@ -1,5 +1,5 @@
 import { forwardRef, useState, useEffect, useRef } from "react";
-import { useClickOutside } from "./hook/useClickOutside";
+import { useClickOutside } from "../../hooks/useClickOutside";
 
 export type SelectContentProps = {
   onSelectChange: (listItem: string[]) => void;

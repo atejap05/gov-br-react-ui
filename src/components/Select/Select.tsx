@@ -1,4 +1,3 @@
-// import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import "../../style.css";
 import React, { forwardRef, useState } from "react";
 import { Button } from "../Button";
@@ -13,7 +12,6 @@ export type SelectProps = React.HtmlHTMLAttributes<HTMLInputElement> & {
   value?: string;
   allowMultiSelect?: boolean;
   onSelect?: (listItems: TSelectedItems | string) => void;
-
   options: {
     label: string;
     id: string;
@@ -36,7 +34,7 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
           ref={ref}
           id={id}
           label={label}
-          defaultValue={selectedItem}
+          value={selectedItem}
           placeholder={placeholder}
           onChange={e => setSelectedItem(e.target.value)}
           {...props}
