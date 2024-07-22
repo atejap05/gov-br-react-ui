@@ -52,7 +52,12 @@ const TableHead = ({
             </div>
           </th>
           {columns.map(column => (
-            <th key={column.field} scope="col" id={column.field}>
+            <th
+              key={column.field}
+              scope="col"
+              id={column.field}
+              className={"p-0"}
+            >
               {column.title}
             </th>
           ))}

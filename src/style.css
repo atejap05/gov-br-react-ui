@@ -29021,3 +29021,22 @@ button.br-item:not(:disabled):active {
 .br-table.no-hover td:not(.column-collapse):hover td {
   background: none;
 }
+
+.arrow {
+  display: inline-block;
+  opacity: 0;
+  transition: opacity 0.3s, transform 0.3s;
+}
+
+.arrow-up {
+  transform: translateY(12px);
+}
+
+.arrow-down {
+  transform: translateY(-12px);
+}
+
+.show {
+  opacity: 1;
+  transform: translateY(0);
+}

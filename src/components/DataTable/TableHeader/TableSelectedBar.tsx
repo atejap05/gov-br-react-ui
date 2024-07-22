@@ -28,7 +28,7 @@ const TableSelectedBar = () => {
           title="Ver mais opções de ação"
           aria-label="Ver mais opções de ação"
           aria-haspopup="true"
-          onClick={() => setDropdownOpen(!dropdownOpen)}
+          onClick={() => actions && setDropdownOpen(!dropdownOpen)}
           icon={faEllipsisV}
         />
 

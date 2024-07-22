@@ -1,4 +1,4 @@
-import type { TRows, TRow, TColumns } from "../@types";
+import type { TRows, TRow, TColumns, TColumn } from "../@types";
 import { useDataTableContext } from "../context";
 
 export type TableContentProps = {
@@ -17,10 +17,25 @@ const TableContent = ({
   onRowSelect,
 }: TableContentProps) => {
   const { setShowSelecedBar } = useDataTableContext();
+
+  const renderCell = (row: TRow, column: TColumn) => {
+    if (column.render) {
+      return column.render(row);
+    }
+    return row[column.field];
+  };
+
+  const setTdClassName = (row: TRow, column: TColumn) => {
+    if (typeof column.className === "function") {
+      return column.className(row);
+    }
+    return column.className;
+  };
+
   return (
     <tbody>
       {rows.map((row, idx) => (
-        <tr key={row.id}>
+        <tr key={row[columns[0].field]}>
           <td>
             <div className="br-checkbox hidden-label">
               <input
@@ -33,17 +48,20 @@ const TableContent = ({
                 onChange={e => {
                   onRowSelect(row);
                   setShowSelecedBar(e.target.checked);
-                  console.log(row);
                 }}
               />
               <label htmlFor={`check-line-${idx + 1}`}>
-                Selecionar linha {row.id}
+                Selecionar linha {idx + 1}
               </label>
             </div>
           </td>
           {columns.map(column => (
-            <td key={column.field} data-th={column.field}>
-              {row[column.field]}
+            <td
+              key={column.field}
+              data-th={column.field}
+              className={setTdClassName(row, column)}
+            >
+              {renderCell(row, column)}
             </td>
           ))}
         </tr>
