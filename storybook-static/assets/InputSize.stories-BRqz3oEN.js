@@ -1,9 +1,0 @@
-import{j as s}from"./index-DYpDhHov.js";import{I as e}from"./Input-DjvPGevg.js";import"./index-BBkUAzwr.js";/* empty css              */import"./index.es-Bu8WZT3h.js";import"./index-_4_hgnnR.js";import"./Button-BKYVStUH.js";import"./index-VcSA32ej.js";import"./Alert-QHHySjHG.js";const _={title:"Components/Input/Size",component:e,tags:["autodocs"],parameters:{layout:"centered"}},r={render:()=>s.jsx(e,{id:"input-default",placeholder:"Text Something ..."})},t={render:()=>s.jsx(e,{id:"input-small",placeholder:"Text Something ...",size:"sm"})},o={render:()=>s.jsx(e,{id:"input-medium",placeholder:"Text Something ...",size:"md"})},a={render:()=>s.jsx(e,{id:"input-large",placeholder:"Text Something ...",size:"lg"})};var m,n,i;r.parameters={...r.parameters,docs:{...(m=r.parameters)==null?void 0:m.docs,source:{originalSource:`{
-  render: () => <Input id="input-default" placeholder="Text Something ..." />
-}`,...(i=(n=r.parameters)==null?void 0:n.docs)==null?void 0:i.source}}};var p,d,c;t.parameters={...t.parameters,docs:{...(p=t.parameters)==null?void 0:p.docs,source:{originalSource:`{
-  render: () => <Input id="input-small" placeholder="Text Something ..." size="sm" />
-}`,...(c=(d=t.parameters)==null?void 0:d.docs)==null?void 0:c.source}}};var l,u,g;o.parameters={...o.parameters,docs:{...(l=o.parameters)==null?void 0:l.docs,source:{originalSource:`{
-  render: () => <Input id="input-medium" placeholder="Text Something ..." size="md" />
-}`,...(g=(u=o.parameters)==null?void 0:u.docs)==null?void 0:g.source}}};var h,x,S;a.parameters={...a.parameters,docs:{...(h=a.parameters)==null?void 0:h.docs,source:{originalSource:`{
-  render: () => <Input id="input-large" placeholder="Text Something ..." size="lg" />
-}`,...(S=(x=a.parameters)==null?void 0:x.docs)==null?void 0:S.source}}};const y=["Default","Small","Medium","Large"];export{r as Default,a as Large,o as Medium,t as Small,y as __namedExportsOrder,_ as default};
