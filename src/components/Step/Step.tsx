@@ -1,9 +1,5 @@
 import "../../style.css";
 import React, { forwardRef } from "react";
-import {
-  FontAwesomeIconProps,
-  FontAwesomeIcon,
-} from "@fortawesome/react-fontawesome";
 import { cva } from "class-variance-authority";
 
 const stepVariants = cva("br-step", {
@@ -26,7 +22,7 @@ type TStep = {
   alert?: "success" | "danger" | "warning" | "info";
   disabled?: boolean;
   active: boolean;
-  icon?: FontAwesomeIconProps["icon"];
+  icon?: string;
 };
 
 export type StepProps = React.HTMLAttributes<HTMLDivElement> & {
@@ -83,13 +79,7 @@ const Step = forwardRef<HTMLDivElement, StepProps>(
               data-alert={step.alert}
             >
               {step.label && <span className="step-info">{step.label}</span>}
-              {step.icon && (
-                <FontAwesomeIcon
-                  className="step-icon w-1"
-                  aria-hidden
-                  icon={step.icon}
-                />
-              )}
+              {step.icon && <i className={`step-icon fas ${step.icon}`}></i>}
               {step.alert && <span className="step-alert"></span>}
             </button>
           ))}
