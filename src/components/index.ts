@@ -17,3 +17,5 @@ export * from "./Pagination";
 export * from "./Persona";
 export * from "./Header";
 export * from "./Tag";
+export * from "./DataTable";
+export * from "./Step";
