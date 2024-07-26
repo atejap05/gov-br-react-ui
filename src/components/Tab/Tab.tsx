@@ -5,7 +5,7 @@ import "../../style.css";
 const tabVariants = cva("br-tab", {
   variants: {
     size: {
-      md: "medium",
+      md: "",
       lg: "large",
       sm: "small",
     },
