@@ -20,9 +20,11 @@ export type ModalProps = {
   subtitle?: string;
   compact?: boolean;
   children?: React.ReactNode;
+  onClose?: () => void;
 };
 
 const Modal = ({
+  onClose,
   className,
   active,
   title,
@@ -57,9 +59,7 @@ const Modal = ({
             <ModalHeader
               title={title}
               subtitle={subtitle}
-              onClose={(close: boolean) => {
-                setIsActive(!close);
-              }}
+              onClose={onClose}
             ></ModalHeader>
             {children}
           </div>

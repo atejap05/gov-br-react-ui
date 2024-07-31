@@ -7,6 +7,7 @@ const modalFooterVariants = cva("br-modal-footer", {
       left: "justify-content-start",
       center: "justify-content-center",
       right: "justify-content-end",
+      around: "justify-content-around",
     },
   },
 });
@@ -14,7 +15,7 @@ const modalFooterVariants = cva("br-modal-footer", {
 export type ModalFooterProps = {
   className?: string;
   children: React.ReactNode;
-  aling?: "left" | "center" | "right";
+  aling?: "left" | "center" | "right" | "around";
 };
 
 const ModalFooter = ({

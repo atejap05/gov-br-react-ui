@@ -1,5 +1,5 @@
 export type ModalHeaderProps = {
-  onClose: (close: boolean) => void;
+  onClose?: (close: boolean) => void;
   title: string;
   subtitle?: string;
 };
@@ -11,15 +11,17 @@ const ModalHeader = ({ onClose, title, subtitle }: ModalHeaderProps) => {
         <span className="text-up-02">{title}</span>
         {subtitle && <span className="label text-regular">{subtitle}</span>}
       </div>
-      <button
-        className="br-button close circle"
-        type="button"
-        data-dismiss="br-modal"
-        aria-label="Fechar"
-        onClick={() => onClose(true)}
-      >
-        <i className="fas fa-times" aria-hidden="true"></i>
-      </button>
+      {onClose && (
+        <button
+          className="br-button close circle"
+          type="button"
+          data-dismiss="br-modal"
+          aria-label="Fechar"
+          onClick={() => onClose(false)}
+        >
+          <i className="fas fa-times" aria-hidden="true"></i>
+        </button>
+      )}
     </div>
   );
 };
