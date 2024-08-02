@@ -19,3 +19,6 @@ export * from "./Header";
 export * from "./Tag";
 export * from "./DataTable";
 export * from "./Step";
+export * from "./Tab";
+export * from "./Modal";
+export * from "./Upload";
