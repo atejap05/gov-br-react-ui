@@ -52,7 +52,11 @@ const Upload = ({
             existingFile.name === file.name && existingFile.size === file.size
         );
       });
-      setFiles([...files, ...uniqueFiles]);
+      if (multiple) {
+        setFiles([...files, ...uniqueFiles]);
+      } else {
+        setFiles(uniqueFiles);
+      }
     }
   };
 
@@ -64,11 +68,15 @@ const Upload = ({
             existingFile.name === file.name && existingFile.size === file.size
         );
         if (isUnique) {
-          setFiles(prevFiles => [...prevFiles, file]);
+          if (multiple) {
+            setFiles(prevFiles => [...prevFiles, file]);
+          } else {
+            setFiles([file]);
+          }
         }
       });
     },
-    [files]
+    [files, multiple]
   );
 
   useEffect(() => {
