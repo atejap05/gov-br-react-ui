@@ -52,7 +52,7 @@ export type TextareaProps =
     helperText?: string;
     disabled?: boolean;
     labelLeft?: boolean;
-    limit?: number;
+    maxLength?: number;
     value?: string;
     feedback?: {
       message: string;
@@ -73,7 +73,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
       helperText,
       disabled,
       labelLeft,
-      limit,
+      maxLength,
       value,
       onChange,
       ...props
@@ -92,7 +92,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
     const id = nanoid();
 
     const onChangeHandler = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-      if (limit && e.target.value.length > limit) {
+      if (maxLength && e.target.value.length > maxLength) {
         return;
       }
       setTypedValue(e.target.value);
@@ -137,19 +137,19 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(
     };
 
     const renderCaraclterLimit = () => {
-      if (limit && typedValue && !feedback) {
+      if (maxLength && typedValue && !feedback) {
         return (
           <div className="text-base mt-1">
             <span className="limit">
               Limite máximo de{" "}
               <strong>
-                {typedValue?.length || 0}/{limit}
+                {typedValue?.length || 0}/{maxLength}
               </strong>{" "}
               caracteres
             </span>
           </div>
         );
-      } else if (!limit && typedValue && !feedback) {
+      } else if (!maxLength && typedValue && !feedback) {
         return (
           <div className="text-base mt-1">
             <span className="characters">
