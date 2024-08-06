@@ -22,3 +22,4 @@ export * from "./Step";
 export * from "./Tab";
 export * from "./Modal";
 export * from "./Upload";
+export * from "./Textarea";
