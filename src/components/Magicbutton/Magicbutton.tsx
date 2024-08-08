@@ -66,7 +66,7 @@ const Magicbutton = forwardRef<HTMLButtonElement, MagicbuttonProps>(
           onClick={onClick}
           {...props}
         >
-          <span className={icon ? "ml-1" : ""}>{label}</span>
+          <span className={icon && label ? "ml-1" : ""}>{label}</span>
         </Button>
       </div>
     );
