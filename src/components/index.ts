@@ -23,3 +23,4 @@ export * from "./Tab";
 export * from "./Modal";
 export * from "./Upload";
 export * from "./Textarea";
+export * from "./Magicbutton";
