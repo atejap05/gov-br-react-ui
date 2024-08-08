@@ -1,0 +1,53 @@
+@import "../../node_modules/@govbr-ds/core/src/components/magicbutton/magicbutton";
+
+.bottom-right {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+}
+
+.bottom-left {
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+}
+
+.top-right {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+}
+
+.top-left {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+}
+
+.center-bottom {
+  position: fixed;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.center-top {
+  position: fixed;
+  top: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.center-left {
+  position: fixed;
+  top: 50%;
+  left: 1rem;
+  transform: translateY(-50%);
+}
+
+.center-right {
+  position: fixed;
+  top: 50%;
+  right: 1rem;
+  transform: translateY(-50%);
+}
