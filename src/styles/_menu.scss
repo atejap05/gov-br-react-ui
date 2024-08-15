@@ -1,0 +1,9 @@
+@import "../../node_modules/@govbr-ds/core/src/components/menu/menu";
+
+.position-static {
+  position: static !important;
+}
+.position-static .menu-panel {
+  height: auto;
+  z-index: 0 !important;
+}
