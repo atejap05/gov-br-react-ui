@@ -33,10 +33,10 @@ export type SwitchProps = React.HtmlHTMLAttributes<HTMLInputElement> & {
   align?: "right" | "top" | "left";
   icon?: boolean;
   id: string;
-  name?: string;
   label: string;
   value?: string;
   rotulo?: Record<string, string>;
+  onChange?: (value: string) => void;
 };
 
 export const Switch = forwardRef<HTMLInputElement, SwitchProps>(
@@ -50,6 +50,7 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(
       label,
       value,
       rotulo,
+      onChange,
       className,
       ...props
     }: SwitchProps,
@@ -67,6 +68,7 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(
           role="switch"
           value={value}
           disabled={disabled}
+          onChange={e => onChange && onChange(e.target.checked.toString())}
           {...props}
         />
         <label htmlFor={id}>{label}</label>
