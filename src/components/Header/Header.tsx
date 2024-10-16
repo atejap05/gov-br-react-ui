@@ -53,7 +53,6 @@ export type HeaderProps = {
 const Header = ({
   size = "md",
   title,
-
   subtitle,
   menu,
   persona,
