@@ -3,7 +3,9 @@ import React, { forwardRef, useState } from "react";
 import { Button } from "../Button";
 import { SelectInput } from "./SelectInput";
 import { faAngleDown, faAngleUp } from "@fortawesome/free-solid-svg-icons";
-import { SelectContent } from "./SelectContent";
+import { SelectContent, type TOptions } from "./SelectContent";
+
+// Refatorar para onSelect retornar um array de objetos tipo {label: string, id: string}[]
 
 export type SelectProps = React.HtmlHTMLAttributes<HTMLInputElement> & {
   id: string;
@@ -11,14 +13,9 @@ export type SelectProps = React.HtmlHTMLAttributes<HTMLInputElement> & {
   placeholder?: string;
   value?: string;
   allowMultiSelect?: boolean;
-  onSelect?: (listItems: TSelectedItems | string) => void;
-  options: {
-    label: string;
-    id: string;
-  }[];
+  onSelect?: (listItems: TOptions) => void;
+  options: TOptions;
 };
-
-type TSelectedItems = string[];
 
 export const Select = forwardRef<HTMLInputElement, SelectProps>(
   (
@@ -26,7 +23,7 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
     ref
   ) => {
     const [isOpen, setIsOpen] = useState(false);
-    const [selectedItem, setSelectedItem] = useState("");
+    const [selectedItem, setSelectedItem] = useState<TOptions>([]);
 
     return (
       <div className="br-select">
@@ -34,9 +31,11 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
           ref={ref}
           id={id}
           label={label}
-          value={selectedItem}
+          value={selectedItem.map(item => item.label).join(", ")}
           placeholder={placeholder}
-          onChange={e => setSelectedItem(e.target.value)}
+          onChange={e =>
+            setSelectedItem([{ label: e.target.value, id: e.target.value }])
+          }
           {...props}
         >
           <Button
@@ -52,9 +51,9 @@ export const Select = forwardRef<HTMLInputElement, SelectProps>(
         {isOpen && (
           <SelectContent
             allowMultiSelect={allowMultiSelect}
-            onSelectChange={(listItem: TSelectedItems) => {
-              setSelectedItem(listItem.join(", "));
-              onSelect && onSelect(allowMultiSelect ? listItem : listItem[0]);
+            onSelectChange={(listItem: TOptions) => {
+              setSelectedItem(listItem);
+              onSelect && onSelect(listItem);
             }}
             onClickOutside={(value: boolean) => {
               setIsOpen(value);

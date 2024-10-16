@@ -1,14 +1,16 @@
 import { forwardRef, useState, useEffect, useRef } from "react";
 import { useClickOutside } from "../../hooks/useClickOutside";
 
+export type TOptions = {
+  label: string;
+  id: string;
+}[];
+
 export type SelectContentProps = {
-  onSelectChange: (listItem: string[]) => void;
+  onSelectChange: (listItem: TOptions) => void;
   onClickOutside: (value: boolean) => void;
   allowMultiSelect?: boolean;
-  options: {
-    label: string;
-    id: string;
-  }[];
+  options: TOptions;
 };
 
 export const SelectContent = forwardRef<HTMLInputElement, SelectContentProps>(
@@ -16,7 +18,7 @@ export const SelectContent = forwardRef<HTMLInputElement, SelectContentProps>(
     { onSelectChange, onClickOutside, options, allowMultiSelect, ...rest },
     ref
   ) => {
-    const [selectedItems, setSelectedItems] = useState<string[]>([]);
+    const [selectedItems, setSelectedItems] = useState<TOptions>([]);
     const brListRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -43,9 +45,9 @@ export const SelectContent = forwardRef<HTMLInputElement, SelectContentProps>(
                   setSelectedItems(
                     allowMultiSelect
                       ? e.target.checked
-                        ? [...selectedItems, option.label]
-                        : selectedItems.filter(item => item !== option.label)
-                      : [option.label]
+                        ? [...selectedItems, option]
+                        : selectedItems.filter(item => item.id !== option.id)
+                      : [option]
                   )
                 }
                 {...rest}
