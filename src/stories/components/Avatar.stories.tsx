@@ -1,8 +1,8 @@
-import { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import { Avatar } from "../../components/Avatar";
 
-const meta: Meta<typeof Avatar> = {
+const meta = {
   title: "Components/Avatar",
   component: Avatar,
   parameters: {
@@ -22,11 +22,11 @@ const meta: Meta<typeof Avatar> = {
       },
     },
   },
-};
+} satisfies Meta<typeof Avatar>;
 
 export default meta;
 
-type Story = StoryObj<typeof Avatar>;
+type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   args: {

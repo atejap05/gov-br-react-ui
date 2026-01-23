@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { RadioItem } from "../../../components/Radio";
 
 const meta: Meta<typeof RadioItem> = {

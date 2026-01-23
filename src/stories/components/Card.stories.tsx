@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import {
   Card,
@@ -7,7 +7,7 @@ import {
   CardFooter,
 } from "../../components/Card";
 
-const meta: Meta<typeof Card> = {
+const meta = {
   title: "components/Card",
   component: Card,
   parameters: {

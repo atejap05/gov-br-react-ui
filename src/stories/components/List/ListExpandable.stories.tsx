@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { ListExpandable } from "../../../components/List";
 import { faHome, faTable, faUser } from "@fortawesome/free-solid-svg-icons";
 
