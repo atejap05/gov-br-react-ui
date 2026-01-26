@@ -24,7 +24,11 @@ export const PaginacaoBasica: Story = {
 };
 
 export const PaginacaoComCallback: Story = {
-  args: {},
+  args: {
+    numberOfPages: 15,
+    ellipsis: 3,
+    defaultActivePage: 1,
+  },
   render: () => {
     const [currentPage, setCurrentPage] = useState(1);
 

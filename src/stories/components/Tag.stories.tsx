@@ -3,7 +3,7 @@ import { Tag } from "@/components/Tag";
 import { TagStatus } from "@/components/Tag/TagStatus";
 import { TagCount } from "@/components/Tag/TagCount";
 import { TagSelection } from "@/components/Tag/TagSelection";
-import { faUser, faHome, faCog } from "@fortawesome/free-solid-svg-icons";
+import { faUser, faHome } from "@fortawesome/free-solid-svg-icons";
 
 const meta = {
   title: "Components/Tag",

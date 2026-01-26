@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from "@storybook/react-vite";
+import type { StoryObj } from "@storybook/react-vite";
 
 import {
   Card,
@@ -26,6 +26,8 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Template: Story = {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  args: {} as any,
   render: args => (
     <Card {...args}>
       <CardHeader>

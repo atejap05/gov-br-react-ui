@@ -1,0 +1,34 @@
+# Source files
+src/
+*.stories.tsx
+
+# Config files
+.storybook/
+vite.config.ts
+tsconfig.json
+tsconfig.node.json
+.eslintrc.cjs
+
+# Development
+node_modules/
+.vite/
+storybook-static/
+
+# Documentation (opcional)
+@docs/
+scripts/
+
+# Git
+.git/
+.github/
+
+# Others
+*.log
+.DS_Store
+*.local
+
+# Arquivos de teste
+src/main.tsx
+src/App.tsx
+src/App.css
+index.html

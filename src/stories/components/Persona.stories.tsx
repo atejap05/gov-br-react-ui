@@ -46,7 +46,10 @@ export const PersonaSemFoto: Story = {
 };
 
 export const PersonaExemploCompleto: Story = {
-  args: {},
+  args: {
+    src: "https://randomuser.me/api/portraits/men/75.jpg",
+    name: "João Silva",
+  },
   render: () => (
     <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
       <Persona

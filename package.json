@@ -1,8 +1,27 @@
 {
   "name": "gov-br-react-ui",
-  "private": false,
   "version": "0.0.8-beta",
+  "description": "Biblioteca de componentes React seguindo o Design System do Governo Federal",
   "type": "module",
+  "keywords": [
+    "react",
+    "components",
+    "design-system",
+    "govbr",
+    "governo-federal",
+    "ui",
+    "typescript"
+  ],
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/atejap05/gov-br-react-ui.git"
+  },
+  "bugs": {
+    "url": "https://github.com/atejap05/gov-br-react-ui/issues"
+  },
+  "homepage": "https://github.com/atejap05/gov-br-react-ui#readme",
   "main": "dist/index.umd.js",
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
@@ -26,7 +45,10 @@
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "chromatic": "npx chromatic --project-token=chpt_e145a2c5c679c8b"
+    "chromatic": "npx chromatic --project-token=chpt_e145a2c5c679c8b",
+    "prepublishOnly": "npm run lint && npm run build",
+    "test:build": "npm run build && npm pack --dry-run",
+    "test:types": "tsc --noEmit"
   },
   "peerDependencies": {
     "react": ">=18.0.0",

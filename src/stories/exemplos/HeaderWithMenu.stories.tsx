@@ -17,7 +17,9 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const HeaderComMenuBasico: Story = {
-  args: {},
+  args: {
+    title: "Minha Aplicação",
+  },
   render: () => {
     const [menuOpen, setMenuOpen] = useState(false);
 
@@ -94,7 +96,9 @@ export const HeaderComMenuBasico: Story = {
 };
 
 export const HeaderComMenuCompleto: Story = {
-  args: {},
+  args: {
+    title: "Sistema de Gestão",
+  },
   render: () => {
     const [menuOpen, setMenuOpen] = useState(false);
 
@@ -249,7 +253,9 @@ export const HeaderComMenuCompleto: Story = {
 };
 
 export const HeaderComMenuModoPush: Story = {
-  args: {},
+  args: {
+    title: "Aplicação com Menu Push",
+  },
   render: () => {
     const [menuOpen, setMenuOpen] = useState(true);
 

@@ -16,9 +16,10 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const MenuBasico: Story = {
-  args: {},
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  args: {} as any,
   render: () => {
-    const [showMenu, setShowMenu] = useState(true);
+    const [showMenu] = useState(true);
 
     return (
       <Menu
@@ -48,9 +49,10 @@ export const MenuBasico: Story = {
 };
 
 export const MenuComSubitens: Story = {
-  args: {},
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  args: {} as any,
   render: () => {
-    const [showMenu, setShowMenu] = useState(true);
+    const [showMenu] = useState(true);
 
     return (
       <Menu
@@ -104,7 +106,8 @@ export const MenuComSubitens: Story = {
 };
 
 export const MenuComHeader: Story = {
-  args: {},
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  args: {} as any,
   render: () => {
     const [showMenu, setShowMenu] = useState(true);
 
@@ -144,6 +147,8 @@ export const MenuComHeader: Story = {
 };
 
 export const MenuCompleto: Story = {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  args: {} as any,
   render: () => {
     const [showMenu, setShowMenu] = useState(true);
 
@@ -231,9 +236,10 @@ export const MenuCompleto: Story = {
 };
 
 export const MenuModoPush: Story = {
-  args: {},
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  args: {} as any,
   render: () => {
-    const [showMenu, setShowMenu] = useState(true);
+    const [showMenu] = useState(true);
 
     return (
       <Menu
@@ -263,9 +269,10 @@ export const MenuModoPush: Story = {
 };
 
 export const MenuDensidadeCompacta: Story = {
-  args: {},
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  args: {} as any,
   render: () => {
-    const [showMenu, setShowMenu] = useState(true);
+    const [showMenu] = useState(true);
 
     return (
       <Menu
@@ -296,9 +303,10 @@ export const MenuDensidadeCompacta: Story = {
 };
 
 export const MenuDensidadeGrande: Story = {
-  args: {},
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  args: {} as any,
   render: () => {
-    const [showMenu, setShowMenu] = useState(true);
+    const [showMenu] = useState(true);
 
     return (
       <Menu

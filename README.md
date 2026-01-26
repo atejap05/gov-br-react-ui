@@ -1,6 +1,11 @@
 # Gov.br React UI
 
-Este projeto é uma biblioteca de componentes ReactJS construída seguindo o padrão digital do [Design System do Governo Federal](https://www.gov.br/ds/home).
+[![npm version](https://img.shields.io/npm/v/gov-br-react-ui.svg)](https://www.npmjs.com/package/gov-br-react-ui)
+[![npm downloads](https://img.shields.io/npm/dm/gov-br-react-ui.svg)](https://www.npmjs.com/package/gov-br-react-ui)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+Biblioteca de componentes ReactJS construída seguindo o padrão digital do [Design System do Governo Federal](https://www.gov.br/ds/home).
+
 Nosso objetivo é fornecer uma coleção de componentes e interfaces UI de alta qualidade e acessíveis, que possam ser facilmente integrados em aplicações React.
 
 ## Características
@@ -18,37 +23,106 @@ Nosso principal objetivo é criar uma biblioteca de componentes que:
 - Promova a reutilização de código.
 - Aumente a eficiência do desenvolvimento de interfaces.
 
-## Como Acessar
+## Instalação
 
-Para começar a usar nossa biblioteca de componentes, siga estes passos:
+Para instalar a biblioteca em seu projeto:
+
+```bash
+npm install gov-br-react-ui
+```
+
+ou com yarn:
+
+```bash
+yarn add gov-br-react-ui
+```
+
+ou com pnpm:
+
+```bash
+pnpm add gov-br-react-ui
+```
+
+## Uso Básico
+
+```tsx
+import { Button } from 'gov-br-react-ui';
+
+function App() {
+  return (
+    <Button variant="primary" onClick={() => console.log('Clicado!')}>
+      Clique aqui
+    </Button>
+  );
+}
+```
+
+## Componentes Disponíveis
+
+A biblioteca inclui os seguintes componentes:
+
+- **Alert** - Componente de alerta
+- **Avatar** - Avatar de usuário
+- **Button** - Botão
+- **Card** - Card com header, content e footer
+- **Checkbox** - Checkbox e grupo de checkboxes
+- **DataTable** - Tabela de dados
+- **DateTimePicker** - Seletor de data e hora
+- **Divider** - Divisor visual
+- **Header** - Cabeçalho de aplicação
+- **Input** - Campo de entrada de texto
+- **Item** - Item de lista ou menu
+- **List** - Lista com itens expansíveis
+- **Loading** - Indicador de carregamento
+- **Magicbutton** - Botão mágico
+- **Menu** - Menu lateral (offcanvas/push)
+- **Message** - Mensagem de feedback
+- **Modal** - Modal/dialog
+- **Pagination** - Paginação
+- **Persona** - Perfil de usuário
+- **Radio** - Radio button e grupo
+- **Select** - Campo de seleção
+- **Step** - Indicador de etapas
+- **Switch** - Interruptor
+- **Tab** - Abas
+- **Tag** - Tag, TagStatus, TagCount, TagSelection
+- **Textarea** - Campo de texto multilinha
+- **Upload** - Upload de arquivos
+
+## Desenvolvimento
+
+Para contribuir ou desenvolver localmente:
 
 1. Clone o repositório:
 
-   ```git
+   ```bash
    git clone https://github.com/atejap05/gov-br-react-ui
+   cd gov-br-react-ui
    ```
 
 2. Instale as dependências:
 
-   ```node
+   ```bash
    npm install
    ```
 
-3. Inicie o projeto:
+3. Inicie o Storybook para visualizar os componentes:
 
-   ```node
-   npm run dev
+   ```bash
+   npm run storybook
    ```
 
 ## Documentação
 
-Para vizualizar a documentação localmente:
+A documentação completa e exemplos de uso estão disponíveis no Storybook:
 
-```node
+🔗 **[Visualizar Storybook Online](https://main--660d686fca703150f4bd09bd.chromatic.com)**
+
+Para visualizar localmente:
+
+```bash
 npm run storybook
 ```
-
-Você também pode encontrar a documentação completa e exemplos de uso dos componentes no nosso Storybook em [storybook](https://main--660d686fca703150f4bd09bd.chromatic.com)
 
 ## Contribuindo
 
