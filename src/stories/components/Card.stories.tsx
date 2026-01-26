@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react";
+import type { StoryObj } from "@storybook/react-vite";
 
 import {
   Card,
@@ -7,7 +7,7 @@ import {
   CardFooter,
 } from "../../components/Card";
 
-const meta: Meta<typeof Card> = {
+const meta = {
   title: "components/Card",
   component: Card,
   parameters: {
@@ -26,6 +26,8 @@ export default meta;
 type Story = StoryObj<typeof meta>;
 
 export const Template: Story = {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  args: {} as any,
   render: args => (
     <Card {...args}>
       <CardHeader>

@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { faUser, faMailBulk, faKey } from "@fortawesome/free-solid-svg-icons";
 import { Card, CardContent } from "../../components/Card";
 import { Button } from "../../components/Button";

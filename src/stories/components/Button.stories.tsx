@@ -1,8 +1,8 @@
-import { Meta, StoryObj } from "@storybook/react";
+import type { Meta, StoryObj } from "@storybook/react-vite";
 
 import { Button } from "../../components/Button";
 
-const meta: Meta<typeof Button> = {
+const meta = {
   title: "Components/Button",
   component: Button,
   tags: ["autodocs"],
@@ -61,7 +61,7 @@ const meta: Meta<typeof Button> = {
       },
     },
   },
-};
+} satisfies Meta<typeof Button>;
 
 export default meta;
 

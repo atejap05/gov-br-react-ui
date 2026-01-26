@@ -21,21 +21,29 @@ const headerVariants = cva("br-header", {
   },
 });
 
+/**
+ * Props do componente Header
+ */
 export type HeaderProps = {
+  /** Classe CSS adicional */
   className?: string;
+  /** Configuração do logo no header */
   headerLogo?: {
     logoSrc: string;
     assinatura: string;
     href?: string;
   };
+  /** Configuração do botão de menu */
   menu?: {
     onClick: (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => void;
   };
+  /** Configuração da persona (avatar do usuário) */
   persona?: {
     src: string;
     name: string;
     description?: string;
   };
+  /** Configuração dos links rápidos no header */
   headerLinks?: {
     title: string;
     options: {
@@ -43,13 +51,36 @@ export type HeaderProps = {
       url: string;
     }[];
   };
+  /** Título principal do header */
   title: string;
+  /** Subtítulo do header */
   subtitle?: string;
+  /** Se o header deve ficar fixo no topo ao rolar */
   sticky?: boolean;
+  /** Se o header deve usar modo compacto */
   compact?: boolean;
+  /** Tamanho do header */
   size?: "sm" | "md" | "lg";
 };
 
+/**
+ * Componente Header do Design System Gov.br
+ * 
+ * Cabeçalho padrão para aplicações governamentais com logo, título, menu e persona.
+ * 
+ * @example
+ * ```tsx
+ * <Header
+ *   title="Minha Aplicação"
+ *   subtitle="Sistema de gestão"
+ *   menu={{ onClick: () => setMenuOpen(true) }}
+ *   headerLogo={{
+ *     logoSrc: "/logo.png",
+ *     assinatura: "Governo Federal"
+ *   }}
+ * />
+ * ```
+ */
 const Header = ({
   size = "md",
   title,

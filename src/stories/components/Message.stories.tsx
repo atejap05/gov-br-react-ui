@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { Message } from "../../components/Message";
 
 const meta: Meta<typeof Message> = {

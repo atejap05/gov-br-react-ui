@@ -1,4 +1,8 @@
 {
   "projectId": "Project:660d686fca703150f4bd09bd",
+  "projectToken": "chpt_e145a2c5c679c8b",
+  "buildScriptName": "build-storybook",
+  "exitZeroOnChanges": false,
+  "exitOnceUploaded": true,
   "zip": true
 }

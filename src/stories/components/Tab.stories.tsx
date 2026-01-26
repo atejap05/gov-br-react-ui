@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from "@storybook/react";
+import { Meta, StoryObj } from "@storybook/react-vite";
 import { Tab } from "../../components/Tab";
 
 const meta: Meta<typeof Tab> = {

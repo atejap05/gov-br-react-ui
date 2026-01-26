@@ -23,6 +23,16 @@ export type ClickedItens = {
   active: boolean;
 }[];
 
+/**
+ * Formata o nome do ícone adicionando o prefixo "fa-" se necessário
+ * @param icon - Nome do ícone (com ou sem prefixo fa-)
+ * @returns Nome do ícone formatado com prefixo fa-
+ */
+const formatIconClass = (icon?: string): string => {
+  if (!icon) return '';
+  return icon.startsWith('fa-') ? icon : `fa-${icon}`;
+};
+
 const MenuBody = ({ menuItems, onClick }: MenuBodyProps) => {
   const [clickedItens, setClickedItens] = useState<ClickedItens>(
     menuItems.map(item => ({ id: item.id, active: false }))
@@ -64,7 +74,7 @@ const MenuBody = ({ menuItems, onClick }: MenuBodyProps) => {
               onClick={handleItemClick.bind(null, id)}
             >
               <span className="icon">
-                <i className={`fas ${icon}`} aria-hidden="true"></i>
+                <i className={`fas ${formatIconClass(icon)}`} aria-hidden="true"></i>
               </span>
               <span className="content">{content}</span>
               {layer && (
@@ -83,7 +93,7 @@ const MenuBody = ({ menuItems, onClick }: MenuBodyProps) => {
                       onClick={handleItemClick.bind(null, id)}
                     >
                       <span className="icon">
-                        <i className={`fas ${icon}`} aria-hidden="true"></i>
+                        <i className={`fas ${formatIconClass(icon)}`} aria-hidden="true"></i>
                       </span>
                       <span className="content">{content}</span>
                     </a>
