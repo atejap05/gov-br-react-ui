@@ -8,7 +8,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const config: StorybookConfig = {
-  stories: ["../src/**/*.mdx", "../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
+  stories: ["../src/**/*.stories.@(js|jsx|mjs|ts|tsx)"],
 
   addons: [
     "@storybook/addon-onboarding",
@@ -30,13 +30,25 @@ const config: StorybookConfig = {
       })
     );
 
-    // Increase build timeout for large CSS files
+    // Increase build timeout and chunk size warning limit for Storybook
     if (config.build) {
-      config.build.chunkSizeWarningLimit = 1000;
+      config.build.chunkSizeWarningLimit = 2000; // 2MB - Storybook bundles can be large
     } else {
       config.build = {
-        chunkSizeWarningLimit: 1000,
+        chunkSizeWarningLimit: 2000,
       };
+    }
+
+    // Disable dts generation for Storybook build (not needed, causes warning)
+    if (config.plugins) {
+      config.plugins = config.plugins.filter(
+        (plugin) => {
+          if (typeof plugin === 'object' && plugin !== null && 'name' in plugin) {
+            return plugin.name !== 'vite-plugin-dts';
+          }
+          return true;
+        }
+      );
     }
 
     // Optimize esbuild options to prevent EPIPE errors

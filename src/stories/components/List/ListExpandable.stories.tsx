@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from "@storybook/react-vite";
-import { ListExpandable } from "../../../components/List";
+import { ListExpandable } from "../../../components/List/ListExpandable";
 import { faHome, faTable, faUser } from "@fortawesome/free-solid-svg-icons";
 
 const meta: Meta<typeof ListExpandable> = {
